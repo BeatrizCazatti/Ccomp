@@ -1,0 +1,1 @@
+#20: Crie um programa que imprima os 4 primeiros números perfeitos.
