@@ -1,0 +1,1 @@
+#07: Um anagrama (do grego ana = "voltar" ou "repetir" + graphein = "escrever") é uma espécie de jogo de palavras, resultando do rearranjo das letras de uma palavra ou frase para produzir outras palavras, utilizando todas as letras originais exatamente uma vez. Um exemplo conhecido é o nome da personagem Iracema, claro anagrama de América,
