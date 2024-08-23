@@ -1,0 +1,1 @@
+#02: Crie um programa que escreva os N primeiros termos de uma progressão aritmética (PA). O primeiro termo e a razão da PA devem ser informados pelo usuário.
