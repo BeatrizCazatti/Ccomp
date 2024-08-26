@@ -1,0 +1,1 @@
+#13: Crie um algoritmo que leia um número N e imprima os N primeiros números primos. O seu programa deve fazer o MÍNIMO de interações possíveis e obrigatoriamente usar uma função para calcular se o número é primo.

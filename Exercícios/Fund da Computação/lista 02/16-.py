@@ -1,0 +1,1 @@
+#16: Crie um algoritmo que leia um número decimal (com qualquer número de dígitos) e o converta para a base hexadecimal. A resposta deve ser dada em string.

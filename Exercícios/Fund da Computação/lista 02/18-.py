@@ -1,0 +1,1 @@
+#18: Implemente a função Cramer(matriz, vetor) que calcule as raízes de um sistema de 3 equações e 3 incógnitas pela Regra de Cramer e retorna a solução na forma de um vetor. Se não houver solução para o sistema, deve imprimir uma mensagem de erro e retornar um vetor vazio ([]). Sua função pode (e deve) chamar a função det(matriz) que retorna o valor do determinante da matriz.
