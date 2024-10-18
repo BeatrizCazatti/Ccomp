@@ -2,3 +2,6 @@
     #a) a média salarial dos homens, a média salarial das mulheres;
     #b) o maior salário encontrado entre as pessoas abaixo de 30 anos.
     #Obs.: O final da leitura de dados é marcado por uma idade negativa.
+
+sexo = str(input('Sexo: '))
+idade = int(input('Salário: '))
