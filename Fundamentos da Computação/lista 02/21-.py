@@ -1,0 +1,1 @@
+#21: Leia um arquivo entrada.txt e troque todas as letras minúsculas por maiúsculas e vice-versa. Grave o resultado em um arquivo saida.txt.

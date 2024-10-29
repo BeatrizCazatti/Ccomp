@@ -1,0 +1,1 @@
+#10: Crie a função multiplica_matriz(mat1, mat2) que deve retornar o produto de duas matrizes bidimensionais genéricas, sem alterar as matrizes originais. A função deve imprimir uma mensagem de erro e retornar um vetor vazio ([]) caso não seja possível realizar o produto das duas matrizes.

@@ -1,0 +1,1 @@
+#19: Leia um arquivo texto.txt e conte a quantas vezes cada palavra ocorre no texto, criando dois vetores distintos ou utilizando a estrutura de dicionários. Você tem ainda que considerar que o texto possui pontuação e números, que não deverão fazer parte da contagem.
