@@ -1,1 +1,0 @@
-#05:Crie um programa que leia a descrição, o preço unitário e a quantidade de 10 produtos comprados por uma empresa. Ao final deve ser escrito o total gasto pela empresa e a descrição do produto mais caro.
