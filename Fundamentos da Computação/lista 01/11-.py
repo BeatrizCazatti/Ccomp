@@ -1,1 +1,0 @@
-#11-Crie um programa que calcule a soma dos N primeiros números inteiros ímpares e positivos. O valor de N deve ser lido do usuário.
