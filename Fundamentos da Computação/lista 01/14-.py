@@ -1,1 +1,0 @@
-#14: Num frigorífico existem 90 bois. Cada boi traz preso em seu pescoço um cartão contendo seu número de identificação e seu peso. Crie um programa que escreva o número e peso do boi mais gordo e do boi mais magro. Além disso, responda: se houver dois ou mais bois com o mesmo peso, maior que todos os demais, este algoritmo escreverá o número de qual deles?
