@@ -3,10 +3,12 @@
 n = int(input('Digite um número: '))
 divisores = []
 somaDivisores = 0
+#é divisor?
 for i in range(1, n):
     if n%i == 0:
         divisores.append(i)
-
+        
+#soma a lista de divisores
 for c in divisores:
     somaDivisores += c
 
