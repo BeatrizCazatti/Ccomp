@@ -1,1 +1,0 @@
-#25: Crie um programa que leia N números inteiros positivos e responda se é possível formar um polígono com o mesmo. Dica: maior número < soma dos demais números.
