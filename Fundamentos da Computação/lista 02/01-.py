@@ -1,1 +1,0 @@
-#01: Faça um programa para ler 50 valores de temperaturas em graus Celsius. Transformar essas temperaturas em Farenheit e imprimir a média das temperaturas em Celsius e Farenheit e quantas temperaturas ficaram acima da média em Farenheit.
