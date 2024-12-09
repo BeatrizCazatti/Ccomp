@@ -18,3 +18,8 @@ elif imc > tabela_imc[sexo][idade][1]:
     print('SOBREPESO')
 else:
     print('PESO ADEQUADO')
+
+#saber se a chave está ou não no dicionário(retorna valor boleano)
+
+#tabela_imc.get('22') is None
+#'22' in tabela_imc
