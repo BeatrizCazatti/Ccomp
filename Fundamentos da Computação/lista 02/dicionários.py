@@ -23,3 +23,7 @@ else:
 
 #tabela_imc.get('22') is None
 #'22' in tabela_imc
+
+#items() - retorna uma lista com todos os pares (chaves e conteúdos) 
+#keys() - retorna uma lista com todas as chaves
+#values() - retorna uma lista com todos os conteúdos
