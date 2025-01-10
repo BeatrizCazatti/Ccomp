@@ -1,4 +1,4 @@
-#01: Faça um programa para ler 50 valores de temperaturas em graus Celsius. Transformar essas temperaturas em fahrenheit e imprimir a média das temperaturas em Celsius e fahrenheit e quantas temperaturas ficaram acima da média em fahrenheit.
+#01: Faça um programa para ler 5 valores de temperaturas em graus Celsius. Transformar essas temperaturas em fahrenheit e imprimir a média das temperaturas em Celsius e fahrenheit e quantas temperaturas ficaram acima da média em fahrenheit.
 
 celsius = []
 fahrenheit = []
