@@ -1,6 +1,8 @@
 def mdc(a, b):
     while b:
-        a, b = b, a % b
+        r = a  
+        a = b     
+        b = r % b 
     return a
 
 a = int(input("a: "))
