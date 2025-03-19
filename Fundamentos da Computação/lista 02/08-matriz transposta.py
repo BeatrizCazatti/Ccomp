@@ -18,11 +18,11 @@ for i in range(0, col_A):
         A[i] = float(input(f'valor A[{i}][{j}]:'))
 
         
-#printar em forma de matriz:
+#printar em forma de matriz: 
 for i in range(lin_A):
     for j in range(col_A):
-        print(f'{A[i][j]:^3f}',end='')
-    print()        
+        print('{: ^3}'.format(A[i][j]),end='')
+    print()      
 
 #def mat_transposta(matriz):
 #    matriz_trans = []
