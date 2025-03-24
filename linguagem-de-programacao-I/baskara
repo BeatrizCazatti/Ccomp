@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main () {
+	int a, b, c;
+	float delta;
+
+	scanf("%d", &a);
+	scanf("%d", &b);
+
+	if (b != 0) {
+		c = a / b;
+		printf("%d", c);
+		//b²-4ac
+		delta = b*b - (4*a*c);
+		if (delta > 0.001) 	//positivo
+			printf("Duas raízes reais");
+		if (delta < 0.001)	//negativo
+			printf("Uma única raiz");
+		else			//=0
+			printf("Possui uma única raiz");
+	}
+	else
+		printf("Divisão por zero");
+
+	return 0;
+}
