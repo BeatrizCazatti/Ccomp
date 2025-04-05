@@ -1,0 +1,1 @@
+#23: Implemente a função area_triangulo(matriz). O parâmetro matriz é uma matriz 3x2 que contém as coordenadas x e y de pontos do triângulo. Utilize fórmula de Heron para calcular a área(formula23.png). Onde s é o semiperímetro do triângulo e a, b e c são os comprimento dos lados do triângulo.

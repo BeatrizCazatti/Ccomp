@@ -1,0 +1,1 @@
+/*Escreva um algoritmo para ler valores inteiros diferentes de 0 (zero) na entrada padrão e em seguida gravá-los em uma estrutura de árvore binária. Implementar struct para representar a árvore com os nós esquerdo e direito*/

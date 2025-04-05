@@ -1,0 +1,1 @@
+/*Escreva um algoritmo que leia na entrada padrão números inteiros diferentes de 0 (zero) e o ordene a array utilizando ponteiros ponteiros (sem utilizar indexação de array).*/

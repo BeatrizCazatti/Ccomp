@@ -1,0 +1,1 @@
+#29: Seu programa deve ler as variáveis inteiras A e B. Posteriormente, calcule o Máximo Divisor Comum (MDC) entre A e B e a quantidade de divisores comuns entre A e B.
