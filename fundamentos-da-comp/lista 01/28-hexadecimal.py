@@ -1,1 +1,0 @@
-#28: Crie um programa que leia um número decimal (com qualquer número de dígitos) e o converta para a base hexadecimal.

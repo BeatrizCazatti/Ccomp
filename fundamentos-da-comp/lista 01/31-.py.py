@@ -1,1 +1,0 @@
-#31: Leia um número N inteiro. Calcule sua raiz inteira. Exemplo: N=21, raiz inteira = 4.

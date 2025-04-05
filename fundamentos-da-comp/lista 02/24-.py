@@ -1,1 +1,0 @@
-#24: Implemente a função area_poligono(matriz). Esta função calculará a área de um polígono convexo cujos vértices estão na matriz (N x 2 – N indeterminado). Dicas: utilize a função area_triangulo(mat) que calcula a área de um triângulo. Em um quadrilátero com vértices X1, X2, X3 e X4, a área do mesmo consiste da soma dos triângulos com vértices (X1, X2 e X3) e (X1, X3 e X4).

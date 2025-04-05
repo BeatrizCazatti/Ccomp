@@ -1,1 +1,0 @@
-#20: Crie um vetor com 100 elementos aleatórios. Após isso faça a ordenação dos mesmos, SEM UTILIZAR O MÉTODO sort().

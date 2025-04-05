@@ -1,1 +1,0 @@
-#22: Crie um programa para um caixa eletrônico que leia o valor solicitado por um usuário e imprima a menor quantidade possível de notas a ser dada ao usuário. Assume-se que existam notas de 50, 20, 10, 5 e 1. Imprimir também a quantidade de cada nota a ser dada ao usuário. Exemplo: 98 = uma nota de 50, duas notas de 20, uma nota de 5, e três notas de 1.
