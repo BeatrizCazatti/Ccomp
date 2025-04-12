@@ -13,13 +13,13 @@ Intensidade 99: 99 pixels
 
 Exemplo: o arquivo lena.csv contem uma matrix 159x159 representando os pixels em escala de cinza de uma famosa imagem usada em estudos de Visão Computacional.
 
- [mulher.png]
+[image1.png]
 
 Exemplo: o arquivo einstein.csv contem uma matrix 182x186.
 
-[einstein.png]
+[image2.png]
 
 Para validar o histograma de pixels de cada imagem, pode-se utilizar o site abaixo:
 
-Image Histogram (Grayscale) - Online Generator/Calculator (dcode.fr)
+Image Histogram (Grayscale) - Online Generator/Calculator (https://www.dcode.fr/image-histogram)
 */

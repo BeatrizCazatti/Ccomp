@@ -9,4 +9,4 @@ Distancia total: 6
 A imagem abaixo fornece uma representação visual das cidades (vértices) e as estradas que as conectam (arestas) com a distância entre elas.
 
 
-[img.png]*/
+[image0.png]*/

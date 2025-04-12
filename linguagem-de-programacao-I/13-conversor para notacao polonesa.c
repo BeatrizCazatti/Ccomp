@@ -6,7 +6,4 @@ Exemplo:
 
 Entrada: ((A+B)*(C-(F/D)))
 
-Saída: AB+CFD/-*
-
-Notação polonesa inversa – Wikipédia, a enciclopédia livre (wikipedia.org)
-*/
+Saída: AB+CFD/-*     */

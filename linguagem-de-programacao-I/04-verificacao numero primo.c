@@ -3,9 +3,7 @@
 Exemplo:
 
 Entrada: 7
-
 Saída: 7 primo
 
 Entrada: 9
-
 Saída: 9 nao primo*/

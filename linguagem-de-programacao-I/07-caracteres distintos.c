@@ -1,34 +1,19 @@
-/*Escreva um algoritmo que receba dois valores numéricos reais de entrada, total a pagar e valor pago, e retorne o troco a ser pago com o menor número de moedas de real (R$) possível. O texto retornado deve conter a descrição conforme detalhado abaixo, onde n representa a quantidade de moedas, com cada grupo de moedas de mesmo valor separados por vírgula.
+/*Escreva um algoritmo que leia um texto até 100 caracteres e determine se ele possui todos os caracteres únicos ou não. O algoritmo deve retornar “Verdadeiro” caso a entrada possua todos os caracteres únicos, caso contrário deve imprimir “Falso”. Não há distinção entre caracteres maiúsculos e minúsculos. Espaço em branco neste exercício não deve ser considerado na contagem de repetidos.
 
-"n moeda(s) de 1 real"
+Exemplos:
 
-"n moeda(s) de 50 centavos"
-
-"n moeda(s) de 25 centavos"
-
-"n moeda(s) de 10 centavos"
-
-"n moeda(s) de 5 centavos"
-
-"n moeda(s) de 1 centavo"
-
+Entrada: ABBC
+Saída: Falso
  
+Entrada: ABC
+Saída: Verdadeiro
 
-Se total a pagar e valor pago forem iguais, imprimir:
+Entrada: ABCa
+Saída: Verdadeiro
 
-"Sem troco"
+Entrada: ABC dfg
+Saída: Verdadeiro
 
-Se valor pago for menor que total a pagar, imprimir:
-
-"Valor pago insuficiente"
-
- 
-
-Exemplo:
-
-Entrada: 0.37 2
-
-Saída:
-
-1 moeda(s) de 1 real, 1 moeda(s) de 50 centavos, 1 moeda(s) de 10 centavos, 3 moeda(s) de 1 centavo
-*/
+Entrada: ABC def ghi
+Saída: Verdadeiro
+*/ 

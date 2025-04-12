@@ -5,11 +5,8 @@
 Exemplo:
 
 Entrada:
-
 10 20 30 20 0
-
 Saída: 20
 
 Entrada: 0
-
 Saída: A lista esta vazia.*/

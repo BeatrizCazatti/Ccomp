@@ -1,12 +1,4 @@
-/*Substituição de Cifra
-Condições de conclusão
- Descrição
- Enviar
- Editar
- Visualizar envios
- Número máximo de arquivos: 1
-Tipo de trabalho:  Trabalho individual
-Escreva um algoritmo que implemente a cifra de substituição para criptografar e descriptografar uma mensagem.
+/*Escreva um algoritmo que implemente a cifra de substituição para criptografar e descriptografar uma mensagem.
 
 A cifra de substituição é um método de criptografia onde cada letra da mensagem original é substituída por outra letra de acordo com um padrão pré-definido.
 
