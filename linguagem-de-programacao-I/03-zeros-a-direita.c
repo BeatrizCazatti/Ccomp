@@ -9,3 +9,16 @@ Entrada:
 
 Saída: 1 1 2 1 3 0 0
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+    int N;
+    scanf("%d", &N);
+    int num[N];
+    printf(num);
+    
+    
+    return 0;
+}
