@@ -1,37 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-void ordenarDecrescentemente(float *vetor, int n){
-    for(int i = 0; i < n - 1; i++) {
-        int indice_maior = i;
-        for (int j = i + 1; j < n; j++) {
-            if (vetor[j] > vetor[indice_maior]) {
-                indice_maior = j;
-            }
-        }
-        
-        float aux = vetor[i];
-        vetor[i] = vetor[indice_maior];
-        vetor[indice_maior] = aux;
-    }   
-}
+#include <string.h>
+
 int main () {
-    float *vetor;
-    int n;
+    char frase[1024];
+    const char *delimitadores = " \t\n.,;:";
+    int contador = 0;
 
-    scanf("%d", &n);
+    scanf(" %[^\n]", frase); //especificador de formato p conjunto de caracteres
 
-    //alocação dinâmica
-    vetor = (float *)malloc(n * sizeof(float));
+    char *palavra = strtok(frase, delimitadores);
 
-    for(int i=0; i < n; i++){
-        scanf("%f", &vetor[i]);
+    while (palavra != NULL) {
+        contador++;
+        palavra = strtok(NULL, delimitadores);
     }
 
-    ordenarDecrescentemente(vetor, n);
-
-    for(int i=0; i < n; i++){
-        printf("%.1f ", vetor[i]);
-    }
-
-    free(vetor);
+    printf("%d", contador);
+    
+    return 0;
 }

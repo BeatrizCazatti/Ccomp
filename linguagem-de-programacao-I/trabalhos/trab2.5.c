@@ -1,22 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+
 
 int main () {
-    char frase[1024];
-    const char *delimitadores = " \t\n.,;:";
-    int contador = 0;
+    signed char parcela1, parcela2; //-128 a 127
+    unsigned char soma;
+    
+    scanf("%hhd %hhd", &parcela1, &parcela2);
 
-    scanf(" %[^\n]", frase); //especificador de formato p conjunto de caracteres
-
-    char *palavra = strtok(frase, delimitadores);
-
-    while (palavra != NULL) {
-        contador++;
-        palavra = strtok(NULL, delimitadores);
-    }
-
-    printf("%d", contador);
+    soma = parcela1 + parcela2;
+    printf("%hhX %hhd \n", parcela1, parcela1);
+    printf("%hhX %hhd \n", parcela2, parcela2);
+    printf("%hhX %hhd \n", (unsigned char)soma, soma);
     
     return 0;
 }
+
