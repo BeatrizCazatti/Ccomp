@@ -28,12 +28,23 @@ int main () {
     scanf("%d", &b);
     
     if(a != b){
-        for(cont = a; cont <= b; cont++){
-            soma = soma + cont;
+        printf("%d", soma);
+        if(a > b){
+            cont = a;
+            while(cont != b){
+                soma = soma + cont;
+                cont -= 1;
+            }
+        } else{
+            cont = b;
+            while(cont != a){.\programa
+                soma = soma + cont;
+                cont -= 1;
+            }
         }
     }
     
-    printf("%d", soma);
+    //printf("%d", );
 
-    return 0;
+    return soma;
 }

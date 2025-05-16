@@ -18,6 +18,7 @@ Saída: 0*/
 
 int main () {
     int N;
+    int ordenados[256];
 
     scanf("%d", &N);
     
