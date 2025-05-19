@@ -19,32 +19,25 @@ Exemplos:
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main () {
-    int a, b, cont, soma=0;
+    int a, b, soma=0;
 
     scanf("%d", &a);
     scanf("%d", &b);
     
     if(a != b){
-        printf("%d", soma);
         if(a > b){
-            cont = a;
-            while(cont != b){
-                soma = soma + cont;
-                cont -= 1;
+            for(int i = 0; a-i >= b; i++){
+                soma = soma + (a - i);
             }
         } else{
-            cont = b;
-            while(cont != a){.\programa
-                soma = soma + cont;
-                cont -= 1;
+            for(int i = 0; a+i <= b; i++){
+                soma = soma + (a + i);
             }
         }
     }
     
-    //printf("%d", );
-
-    return soma;
+    printf("%d", soma);
+    return 0;
 }

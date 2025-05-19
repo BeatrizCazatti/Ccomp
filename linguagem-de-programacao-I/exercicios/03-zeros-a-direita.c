@@ -15,9 +15,18 @@ Saída: 1 1 2 1 3 0 0
 
 int main () {
     int N;
+    printf("Digite o número de elementos do vetor: ");
     scanf("%d", &N);
-    int num[N];
-    printf(num);
+    
+    int *ptr;
+    // Aloca memória para um vetor de num_elements inteiros
+    ptr = (int *)malloc(N * sizeof(int));
+
+    for(int i = 0, i <= len(ptr), i++){
+        
+    }
+
+
     
     
     return 0;
