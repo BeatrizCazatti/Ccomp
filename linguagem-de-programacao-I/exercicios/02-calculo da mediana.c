@@ -17,12 +17,17 @@ Saída: 0*/
 #include <stdlib.h>
 
 int main () {
-    int N;
-    int ordenados[256];
+    int N, quant = 0;
+    //int ordenados[256];
 
     scanf("%d", &N);
     
     while (N != 0 && N != 100) {
+        quant += 1;
         scanf("%d", &N);
+        for (int i = 1; i <= quant; i++){
+            
+        }
     }
+    printf("%d", quant);
 }
