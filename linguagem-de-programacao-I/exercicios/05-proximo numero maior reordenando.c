@@ -11,3 +11,27 @@ Entrada: 513 Saída: 531
 Entrada: 2017 Saída: 2071
 
 Entrada: 33 Saída: 0*/
+
+#include <stdio.h>
+
+int main () {
+    int num;
+    char array_num[20];
+    int indx = 0;
+
+    scanf("%d", &num);
+    
+    //converter inteiro p array de char(string)
+    sprintf(array_num, "%d", num);
+    printf("como string: %s\n", array_num);
+    
+    //ordenação, do maior p o menor
+    while (str[indx] != '\0') {
+        indx++;
+    }
+    
+    //se o numero já estiver em ordem decrescente retorna 0
+    printf("0");
+    printf("%c", array_num[0]);
+    return 0;
+}
