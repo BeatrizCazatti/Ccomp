@@ -11,23 +11,31 @@ Saída: 1 1 2 1 3 0 0
 */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int main () {
-    int N;
+    int N = 0;
     printf("Digite o número de elementos do vetor: ");
     scanf("%d", &N);
     
-    int *ptr;
-    // Aloca memória para um vetor de num_elements inteiros
-    ptr = (int *)malloc(N * sizeof(int));
-
-    for(int i = 0, i <= len(ptr), i++){
-        
+    int vetor[N];
+    
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &vetor[i]);
+    }
+    
+    int troca = 0;
+    for (int i = 0; i < N; i++) {
+        while(vetor[i] == 0) {
+            for(int j = i; j < N - 1; j++) {
+                troca = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = troca;
+            }
+        }
     }
 
+    for(int i = 0; i < N; i++) printf("%d ", vetor[i]);
+    //10 0 0 1 2 0 3 0 4 0 5
 
-    
-    
     return 0;
 }
