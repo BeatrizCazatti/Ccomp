@@ -14,20 +14,49 @@ Entrada: 0
 Saída: 0*/
 
 #include <stdio.h>
-#include <stdlib.h>
 
-int main () {
-    int N, quant = 0;
-    //int ordenados[256];
-
-    scanf("%d", &N);
-    
-    while (N != 0 && N != 100) {
-        quant += 1;
-        scanf("%d", &N);
-        for (int i = 1; i <= quant; i++){
-            
+//ordenacao
+void select_sort (int vetor[], int tam){
+    int menor, troca;
+    for (int i = 0; i < tam - 1; i++) {
+        menor = i;
+        for (int j = i + 1; j < tam; j++){
+            if(vetor[j] < vetor[menor]){
+                menor = j;
+            }
         }
+        troca = vetor[i];
+        vetor[i] = vetor[menor];
+        vetor[menor] = troca;
     }
-    printf("%d", quant);
+}
+
+float mediana(int vetor[], int qtd){
+    if(qtd % 2 == 0){
+        return (vetor[(qtd / 2) - 1] + vetor[qtd / 2]) / 2.00;
+    }else{
+        return vetor[qtd / 2];
+    }
+}
+int main () {
+    int N = 0, qtd = 0;
+
+    int vetor[100];
+    
+    do {
+        scanf("%d", &N);
+        if(N == 0){
+            break;
+        }else if(N > 0){
+            vetor[qtd] = N;
+            qtd += 1;
+        }
+    } while (qtd < 100);
+    if(qtd == 0){
+        printf("0");
+    }else{
+        select_sort(vetor, qtd);
+        printf("%.2f", mediana(vetor, qtd));
+    }
+
 }
