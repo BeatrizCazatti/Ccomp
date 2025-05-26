@@ -21,11 +21,12 @@ int main () {
     
     for (int i = 0; i < N; i++) {
         scanf("%d", &vetor[i]);
+        printf("oi");
     }
     
     int troca = 0;
     for (int i = 0; i < N; i++) {
-        while(vetor[i] == 0) {
+        if(vetor[i] == 0) {
             for(int j = i; j < N - 1; j++) {
                 troca = vetor[j];
                 vetor[j] = vetor[j + 1];
