@@ -16,7 +16,7 @@ def ortogonalizar_base (base):
             #produto_escalar(v1, v2)
     return base_ortogonal
 
-def projecao(vn, uj):
+#def projecao(vn, uj):
     #1:produto escalar
 #def produto_escalar(v1, v2):
 
