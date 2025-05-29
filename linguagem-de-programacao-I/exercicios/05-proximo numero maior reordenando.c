@@ -14,24 +14,44 @@ Entrada: 33 Saída: 0*/
 
 #include <stdio.h>
 
+//ordenaçao decrescente
+void select_sort (char vetor[]){
+    char troca = '0';
+    int i = 0, j, maior;
+
+    while(vetor[i] != '\0'){
+        maior = i;
+        j = i + 1;
+        while(vetor[j] != '\0'){
+            if(vetor[j] > vetor[maior]){
+                maior = j;
+            }
+            j++;
+        }
+        troca = vetor[i];
+        vetor[i] = vetor[maior];
+        vetor[maior] = troca;
+        i++;
+    }
+}
+
 int main () {
     int num;
-    char array_num[20];
-    int indx = 0;
+    char arrayNum[20], arrayOriginal[20];
 
     scanf("%d", &num);
     
     //converter inteiro p array de char(string)
-    sprintf(array_num, "%d", num);
-    printf("como string: %s\n", array_num);
+    sprintf(arrayNum, "%d", num);
+    printf("como string: %s\n", arrayNum);
     
-    //ordenação, do maior p o menor
-    while (str[indx] != '\0') {
-        indx++;
+    strcpy(arrayOriginal, arrayNum);
+    select_sort(arrayNum);
+    if(arrayOriginal == arrayNum){
+        printf("0");
+    }else {
+        printf("\n\nem ordem: %s", arrayNum);
     }
     
-    //se o numero já estiver em ordem decrescente retorna 0
-    printf("0");
-    printf("%c", array_num[0]);
     return 0;
 }
