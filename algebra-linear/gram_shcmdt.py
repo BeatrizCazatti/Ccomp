@@ -1,39 +1,40 @@
+
+def produto_escalar(v1, v2):
+    resultado = 0
+    for i in range(len(v1)):
+        resultado += float(v1[i]) * float(v2[i])
+    return resultado
+
+def subtracao_vetores(v1, v2):
+    vetor_resultado = v1
+    for i in range(len(v1)):
+        vetor_resultado[i] = float(v1[i]) - float(v2[i])
+    return vetor_resultado
+
+def produto_vetor_por_escalar(v1, escalar):
+    vetor_resultado = v1
+    for i in range(len(v1)):
+        vetor_resultado[i] = v1[i] * escalar
+    return vetor_resultado
+
+def projecao_vetores(v1, v2):
+    escalar = produto_escalar(v1, v2) / produto_escalar(v2, v2)
+    return produto_vetor_por_escalar(v2, escalar)
+
 #Aplica Algopritmo de Gram-Shcmidt
 def ortogonalizar_base (base):
     base_ortogonal = []
     #definir u1, u2, ...
     for i in range(len(base)):
-        #primeiro vetor
-        if i == 0:
-            base_ortogonal.append(base[i])
-        else:
-            print(f"vetor {i} {base[i]}")
-            #percorrer v1, v2...
-            for j in range(len(base[i])):
-                #projeção(u)
-                #proj de vi em uj
-                projecao(base[i], base_ortogonal[j])
-            #produto_escalar(v1, v2)
+        vetor_ortogonal = base[i][:]
+        for j in range(len(base[i])):
+            proj = projecao_vetores(base[i], base_ortogonal[j])
+            vetor_ortogonal = subtracao_vetores(vetor_ortogonal, proj)
+
+        base_ortogonal.append(vetor_ortogonal)
     return base_ortogonal
 
-#def projecao(vn, uj):
-    #1:produto escalar
-#def produto_escalar(v1, v2):
 
-#Projeção
-    #produto entre dois vetores(vn sobre u1) -> (vn sobre u2)...
-        #divide pela norma de u1
-        #multiplica por u1
-    #subtrai pelo 
-        #produto entre vn e u2
-            #divide pela norma de u2
-            #multiplica por u2
-
-#2:módulo
-
-#produto escalar
-
-#subtração
 
 #Input do usuário
 num_vetores = int(input('Digite o número de vetores da base: '))
@@ -41,10 +42,15 @@ base = []
 
 print("Digite as componentes dos vetores separando-as por vírgulas")
 for n in range(1, num_vetores+1):
-    componentes = input(f"Vetor {n}: ")
-    base.append(componentes.split(","))
+    entrada = input(f"Vetor {n}: ")
+    componentes_str = entrada.split(",")
+    componentes = []
+    for s in componentes_str:
+        componentes.append(float(s))
 
-ortogonalizar_base(base)
-print('Base Ortogonal:')
-print(base)
-#ortogonalizar_base(base)
+
+print(ortogonalizar_base(base))
+
+
+
+#def normaliza_base
