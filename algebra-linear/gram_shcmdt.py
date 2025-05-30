@@ -1,4 +1,5 @@
 
+#funções úteis
 def produto_escalar(v1, v2):
     resultado = 0
     for i in range(len(v1)):
@@ -24,7 +25,6 @@ def projecao_vetores(v1, v2):
 #Aplica Algopritmo de Gram-Shcmidt
 def ortogonalizar_base (base):
     base_ortogonal = []
-    #definir u1, u2, ...
     for i in range(len(base)):
         vetor_ortogonal = base[i][:]
         for j in range(len(base_ortogonal)):
@@ -33,6 +33,7 @@ def ortogonalizar_base (base):
 
         base_ortogonal.append(vetor_ortogonal)
     return base_ortogonal
+
 
 
 
