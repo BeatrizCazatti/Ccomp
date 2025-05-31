@@ -22,10 +22,12 @@ Saída: 1 moeda(s) de 1 real, 1 moeda(s) de 50 centavos, 1 moeda(s) de 10 centav
 */
 
 #include <stdio.h>
+#include <string.h>
 
 int troco (float *restante, float num) {
     int n = 0;
-    while(*restante >= num){
+    //margem de erro 0.0001
+    while(*restante >= num - 0.0001){
         *restante = *restante - num;
         n++;
     }
@@ -34,6 +36,8 @@ int troco (float *restante, float num) {
 
 int main () {
     float total, pago, restante;
+    int n, add = 0;
+    char buffer[100] = "", output[200] = "";
 
     scanf("%f %f", &total, &pago);
 
@@ -43,13 +47,57 @@ int main () {
         printf("Valor pago insuficiente");
     } else {
         restante = pago - total;
-        //printf("rest: %f\n\n", restante);
     
-        printf("%d moeda(s) de 1 real\n", troco(&restante, 1.00));
-        printf("%d moeda(s) de 50 centavos\n", troco(&restante, 0.50));
-        printf("%d moeda(s) de 25 centavos\n", troco(&restante, 0.25));
-        printf("%d moeda(s) de 10 centavos\n", troco(&restante, 0.10));
-        printf("%d moeda(s) de 1 centavo", troco(&restante, 0.01));
+        n = troco(&restante, 1.00);
+        if(n > 0){
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 1 real", n);
+            strcat(output, buffer);
+            add = 1;
+        }
+        
+        n = troco(&restante, 0.50);
+        if(n > 0){
+            if(add) strcat(output, ", ");
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 50 centavos", n);
+            strcat(output, buffer);
+            add = 1;
+            
+        }
+        
+        n = troco(&restante, 0.25);
+        if (n > 0) {
+            if(add) strcat(output, ", ");
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 25 centavos", n);
+            strcat(output, buffer);
+            add = 1;
+        }
+        
+        n = troco(&restante, 0.10);
+        if (n > 0) {
+            if(add) strcat(output, ", ");
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 10 centavos", n);
+            strcat(output, buffer);
+            add = 1;
+        }
+        
+        n = troco(&restante, 0.05);
+        if (n > 0) {
+            if(add) strcat(output, ", ");
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 5 centavos", n);
+            strcat(output, buffer);
+            add = 1;
+        }
+
+        n = troco(&restante, 0.01);
+        if (n > 0) {
+            if(add) strcat(output, ", ");
+            snprintf(buffer, sizeof(buffer), "%d moeda(s) de 1 centavo", n);
+            strcat(output, buffer);
+        }
+        
+        if(add) strcat(output, ".");
+        printf("%s", output);
+        
     }
     return 0;
 }
