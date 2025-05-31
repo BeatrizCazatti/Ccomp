@@ -1,4 +1,5 @@
 #Funções úteis:
+
 def produto_escalar(v1, v2):
     resultado = 0
     for i in range(len(v1)):
