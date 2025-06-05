@@ -39,19 +39,18 @@ int main(void){
             printf("monthname:%s\n", monthname);
             data_texto_para_num(day, monthname, year); 
         } else if (sscanf(line, "%d/%d/%d", &month, &day, &year) == 3) {
-            printf("%02d/%02d/%d", day, month, year); /* mm/dd/yy form */ 
-        } else if (sscanf(line, "%d %s %s %s %d", &day, word1, word2, word3, &year) == 5) { /*11 de novembro 2005*/
+            printf("%02d/%02d/%d", month, day, year); /* mm/dd/yy form */ 
+        } else if (sscanf(line, "%d %s %s %s %d", &day, word1, word2, word3, &year) == 4) { /*11 de novembro 2005*/
             if(strcmp(word1, "de")){
                  printf("é um de");
-                 monthname = strcpy(word2);
-             }
-            printf("%d", day);
-            printf("%s", word1);
-            printf("%s", word2);
-            printf("%s", word3);
-            printf("%d", year);
-        }
-        else printf("invalid: %s", line); /* invalid form */ 
+                 strcpy(monthname, word2);
+                 printf("%02d/%02d/%d", day, month, year);
+                }
+            } else if (sscanf(line, "%d %s %s %s %d", &day, word1, word2, word3, &year) == 5) { /*11 de novembro de 2005*/
+                if(strcmp(word1, "de") == 0){
+                    data_texto_para_num(day, word2, year);
+                } 
+        } else printf("invalid: %s", line); /* invalid form */ 
     } 
     return 0;
 }
