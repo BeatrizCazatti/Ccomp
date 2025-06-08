@@ -10,19 +10,15 @@ Instruções para a impressão:
 4 - O último pixel da linha de texto NÃO deve ser sucedido por um caractere espaço.*/
 
 #include <stdio.h>
+#include <string.h>
+#include "carregar_pixels.h"
 
 int main () {
-    char nomeArquivo[16], linha[150];
-    int numLinha=0;
-    //scanf("%s", nomeArquivo);
+    char nomeArquivo[16];
+    
+    scanf("%s", &nomeArquivo);
+    strcpy(nomeArquivo, "exemplo.pgm");
+    ler_cabecalho(nomeArquivo);
 
-    FILE *fp = fopen("pgmP2_1.pgm"/*nomeArquivo*/, "r");
-
-    if(fp == NULL)
-        perror("Erro: arquivo inexistente\n");
-    while(fgets(linha, sizeof(linha), fp) != NULL){
-        printf("%x", linha);
-    }
-    fclose(fp);
     return 0;
 }
