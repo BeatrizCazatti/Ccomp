@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "carregar_pixels.h"
 
-int ler_cabecalho(char* nomeArquivo){
+void ler_cabecalho(char* nomeArquivo){
     char linha[150];
     int numColuna, numLinha, quantPixels, maxValor;
 
@@ -24,7 +24,6 @@ int ler_cabecalho(char* nomeArquivo){
     int *pixels = carregar_pgm(fp, quantPixels);
     imprimir_pixels(pixels, numColuna, numLinha);
     fclose(fp);
-    return 0;
 }
 
 int *carregar_pgm (FILE *fp, int quantPixels){

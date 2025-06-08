@@ -17,7 +17,7 @@ int main () {
     char nomeArquivo[16];
     
     scanf("%s", &nomeArquivo);
-    strcpy(nomeArquivo, "exemplo.pgm");
+    strcpy(nomeArquivo, "pgmP2_1.pgm");
     ler_cabecalho(nomeArquivo);
 
     return 0;
