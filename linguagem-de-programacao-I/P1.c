@@ -34,19 +34,47 @@ int main () {
 
 FILE* abertura(void) {
 	char nomeArq[16];
-	
-	scanf("%s", nomeArq);
-	return fopen(nomeArq, "r");
+	printf("Informe o nome do arquivo P2: ");
+    scanf("%s", nomeArq);
+    return fopen(nomeArq, "r");
 }
 
 int parser(int* linhas, int* colunas, int* maximo, FILE* arq){
-	char tipo[16];
-	fgets(tipo, sizeof(linha), arq);
-	strcmp(tipo, "P2");
-	return 0;
+    char linha[100];
+
+    if (!fgets(linha, sizeof(linha), arq)) return 2;
+
+    linha[strcspn(linha, "\n")] = '\0';
+
+    if (strcmp(linha, "P2") != 0) return 2;
+
+    if (!fgets(linha, sizeof(linha), arq)) return 2;
+
+    if (linha[0] == '#') {
+        if (!fgets(linha, sizeof(linha), arq)) return 2;
+    }
+    
+    if (sscanf(linha, "%d %d", colunas, linhas) != 2) return 2;
+
+    if (fscanf(arq, "%d", maximo) != 1) return 2;
+
+    return 0;
 }
 
-int le_imprime_pixels(int linhas, int colunas, int maximo, FILE *parq){
-	printf("le");
+int le_imprime_pixels(int linhas, int colunas, int maximo, FILE* arq){
+	int pixel;
+	float resultado;
+	
+	for(int i = 0; i < linhas; i++) {
+		for(int j = 0; j < colunas; j++) {
+			fscanf(arq, "%d", &pixel);
+			resultado = (float)pixel/(float)maximo;
+			if(resultado == (int)resultado)
+				printf("(%d,%d)=%.0f ", i, j, resultado);
+			else
+				printf("(%d,%d)=%.2f ", i, j, resultado);
+
+        }
+    }
 	return 0;
 }
