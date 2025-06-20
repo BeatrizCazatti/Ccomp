@@ -13,7 +13,6 @@ Organização do programa:
      Respectivamente o protótipo e a implementação das funções responsáveis pela leitura do arquivo texto e a criação do array. O nome do arquivo deve necessariamente ser um parâmetro da função e o array lido deve ser um parâmetro de retorno. Retornar NULL indica ter havido algum problema neste processo.
 
  
-
 - escalar.h e escalar.c:
     Respectivamente o protótipo e a implementação da função iterativa que calcula o produto escalar.
 
@@ -23,3 +22,7 @@ main.c:
     Programa que lê o nome dos dois arquivos (um de cada vez), lê os respactivos vetores, calcula o produto escalar e apresenta o resultado com 3 casas decimais.
 
    Atenção, a função do cálculo do produto escalar deverá ser iterativa.*/
+
+#include <stdio.h>
+#include "escalar.h"
+#include "vetinput.h"
