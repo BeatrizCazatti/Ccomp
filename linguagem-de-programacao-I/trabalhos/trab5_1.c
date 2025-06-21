@@ -9,6 +9,7 @@ Os dados dos arquivos ao serem carregados em memória devem ser armazenados em a
 
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 #define TAM_NOME 50
 #define TAM_MATRICULA 12
@@ -27,13 +28,13 @@ typedef struct{
     char agencia[TAM_AGENCIA + 1];
     char conta[TAM_CONTA + 1];
     float valor_hora;
-}Funcionario;
-int carrega_funcionarios(Funcionario funcionarios, FILE* fp);
+}DadosFuncionario;
+int carrega_funcionarios(DadosFuncionario *func, FILE* fp);
 //int carrega_mes
 //int imprime_folha_de_pagamento
 
 int main () {
-    Funcionario funcionarios[10];
+    DadosFuncionario funcionarios[10]; //cria um array de structs
 
     //abre
     FILE* fp = fopen("Funcionarios.txt", "r");
@@ -42,16 +43,88 @@ int main () {
         return 0;
     }
 
-    carrega_funcionarios(funcionarios, fp);
+    for(int i = 0; i <= 10; i++){
+        carrega_funcionarios(&funcionarios[i], fp);
+        printf(".%s.\n", funcionarios[i].nome);
+        printf(".%s.\n", funcionarios[i].matricula);
+        printf(".%s.\n", funcionarios[i].endereco);
+        printf(".%s.\n", funcionarios[i].cpf);
+        printf(".%s.\n", funcionarios[i].cod_banco);
+        printf(".%s.\n", funcionarios[i].agencia);
+        printf(".%s.\n", funcionarios[i].conta);
+        printf(".%f.\n", funcionarios[i].valor_hora);
+    }
 
     fclose(fp);
     return 0;
 }
 
-int carrega_funcionarios (Funcionario funcionarios, FILE* fp){
-    fscanf(fp, "%50s", funcionarios[0].nome);
-    //strcpy(linha, TAM_NOME, &funcionario.nome);
-    printf("%s\n", funcionarios[0].nome); 
-    //printf("%s\n", linha); 
+int carrega_funcionarios (DadosFuncionario *func, FILE* fp){
+    char linha[300]; //buffer
+    fgets(linha, sizeof(linha), fp);
+
+    // sscanf(linha,
+    // "%50c%12c%65c",
+    // (*func).nome,
+    // (*func).matricula,
+    // (*func).endereco
+    // );
+    // // (*func).cpf,
+    // // (*func).cod_banco,
+    // // (*func).agencia,
+    // // (*func).conta,
+    // // &(*func).valor_hora
+    // (*func).nome[TAM_NOME] = '\0';
+    // (*func).matricula[TAM_MATRICULA] = '\0';
+    // (*func).endereco[TAM_ENDERECO] = '\0';
+    // (*func).cpf[TAM_CPF] = '\0';
+    // (*func).cod_banco[TAM_COD_BANCO] = '\0';
+    // (*func).agencia[TAM_AGENCIA] = '\0';
+    // (*func).conta[TAM_CONTA] = '\0';
+    // Calcula os offsets para cada campo na linha
+    int offset = 0;
+
+    // Nome (TAM_NOME caracteres)
+    strncpy(func->nome, linha + offset, TAM_NOME);
+    func->nome[TAM_NOME] = '\0'; // Nulo-termina a string
+    offset += TAM_NOME; // Avança o offset
+
+    // Matrícula (TAM_MATRICULA caracteres)
+    strncpy(func->matricula, linha + offset, TAM_MATRICULA);
+    func->matricula[TAM_MATRICULA] = '\0';
+    offset += TAM_MATRICULA;
+
+    // Endereço (TAM_ENDERECO caracteres)
+    strncpy(func->endereco, linha + offset, TAM_ENDERECO);
+    func->endereco[TAM_ENDERECO] = '\0';
+    offset += TAM_ENDERECO;
+
+    // CPF (TAM_CPF caracteres)
+    strncpy(func->cpf, linha + offset, TAM_CPF);
+    func->cpf[TAM_CPF] = '\0';
+    offset += TAM_CPF;
+
+    // Código do Banco (TAM_COD_BANCO caracteres)
+    strncpy(func->cod_banco, linha + offset, TAM_COD_BANCO);
+    func->cod_banco[TAM_COD_BANCO] = '\0';
+    offset += TAM_COD_BANCO;
+
+    // Agência (TAM_AGENCIA caracteres)
+    strncpy(func->agencia, linha + offset, TAM_AGENCIA);
+    func->agencia[TAM_AGENCIA] = '\0';
+    offset += TAM_AGENCIA;
+
+    // Conta (TAM_CONTA caracteres)
+    strncpy(func->conta, linha + offset, TAM_CONTA);
+    func->conta[TAM_CONTA] = '\0';
+    offset += TAM_CONTA;
+
+    // Valor da Hora (TAM_VALOR_HORA caracteres)
+    // Copia para um buffer temporário para conversão
+    //strncpy(temp_valor_hora, linha + offset, TAM_VALOR_HORA);
+    //temp_valor_hora[TAM_VALOR_HORA] = '\0'; // Nulo-termina para atof
+    //func->valor_hora = atof(temp_valor_hora); // Converte string para float
+
+
     return 0;
 }
