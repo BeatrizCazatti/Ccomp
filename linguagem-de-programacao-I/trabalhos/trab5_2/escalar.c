@@ -4,9 +4,9 @@
 float produto_escalar(const float* pvet1, const float* pvet2) {
     float resultado = 0;
     
-    int tamanho = (int)pvet1[0];
+    int tam = (int)pvet1[0];
 
-    for (int i = tamanho; i >= 1; i--) {
+    for (int i = tam; i >= 1; i--) {
         resultado += pvet1[i] * pvet2[i];
     }
 
