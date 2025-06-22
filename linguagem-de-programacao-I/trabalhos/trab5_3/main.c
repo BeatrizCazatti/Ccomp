@@ -49,7 +49,8 @@ int main() {
         return 1;
     }
     
-    printf("%.3f", produto_escalar(pvet1, pvet2));
+    int tam = (int)(pvet1[0]);
+    printf("%.3f", produto_escalar_recursivo(pvet1, pvet2, tam));
     
     free(pvet1);
     pvet1 = NULL;

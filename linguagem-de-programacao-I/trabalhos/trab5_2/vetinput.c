@@ -9,7 +9,7 @@ float* le_arquivo (char nomeArq[]) {
     
     FILE* arq = fopen(nomeArq, "r");
     if (arq == NULL) {
-        printf("Erro: arquivo %s não foi encontrado\n", nomeArq);
+        printf("Erro: arquivo %s não foi encontrado.\n", nomeArq);
         return NULL; 
     }
     

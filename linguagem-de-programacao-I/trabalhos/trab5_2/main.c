@@ -32,18 +32,13 @@ int main() {
     scanf("%s", nomeArq2);
     
     pvet1 = le_arquivo(nomeArq1);
-    if (pvet1 == NULL) {
-        printf("Erro: arquivo %s não foi encontrado\n", nomeArq1);
-        return 1;
-    }
     pvet2 = le_arquivo(nomeArq2);
-    if (pvet2 == NULL) {
-        printf("Erro: arquivo %s não foi encontrado\n", nomeArq2);
-        return 2;
+    if (pvet1 == NULL || pvet2 == NULL) {
+        return 1;
     }
     
     if(pvet1[0] != pvet2[0]){
-        printf("Erro: os vetores possuem comprimentos distintos\n");
+        printf("Erro: os vetores possuem comprimentos distintos.\n");
         return 1;
     }
     
