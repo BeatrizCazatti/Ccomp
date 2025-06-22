@@ -1,11 +1,20 @@
 #include <stdio.h>
 #include "floodfill.h"
 
-#define PREENCHIDO 1
-#define VAZIO 0
+#define NUM_LINHAS 20
+#define NUM_COLUNAS 20
 
-//char* flood_fill_recursivo (FILE** matriz, int altura, int largura, int x, int y){
-    //char* matriz = NULL;
+void flood_fill_recursivo(char matriz[NUM_LINHAS][NUM_COLUNAS], int x, int y) {
+    if (x < 0 || x >= NUM_LINHAS || y < 0 || y >= NUM_COLUNAS) //se está dentro dos limites da matriz
+        return;
 
-    //return matriz;
-//}
+    if (matriz[x][y] != ' ')
+        return;
+
+    matriz[x][y] = 'X'; 
+
+    flood_fill_recursivo(matriz, x - 1, y); 
+    flood_fill_recursivo(matriz, x + 1, y); 
+    flood_fill_recursivo(matriz, x, y + 1); 
+    flood_fill_recursivo(matriz, x, y - 1); 
+}

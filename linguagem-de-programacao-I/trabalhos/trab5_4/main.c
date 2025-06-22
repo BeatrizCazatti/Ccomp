@@ -16,12 +16,14 @@ Os elementos da matriz imagem são do tipo caracter. O caracter 'X' indica que o
 #include <stdio.h>
 #include "floodfill.h"
 
-#define NUM_LINHAS 4
-#define NUM_COLUNAS 7
+#define NUM_LINHAS 20
+#define NUM_COLUNAS 20
 
 int main () {
     char nomeArq[16];
-    //char matriz[NUM_LINHAS][NUM_COLUNAS];
+    char linha[256];
+    char matriz[NUM_LINHAS][NUM_COLUNAS];
+    int x=0, y=0;
 
     scanf("%s", nomeArq);
 
@@ -30,21 +32,24 @@ int main () {
         perror("Erro arquivo inexistente\n");
         return 1;
     }
+
+    printf("\n\n");
     for(int i = 0; i < NUM_LINHAS; i++){
         for(int j = 0; j < NUM_COLUNAS; j++){
-            char c = getc(fp);
-            if(c != '\n')
-                printf("%c", c);
-            //matriz[i][j] = getc(fp);
+            matriz[i][j] = getc(fp);
+        }
+        fgetc(fp); // \n
+    }
+    fscanf(fp, "%d %d", &x, &y);
+
+    flood_fill_recursivo(matriz, x, y);
+
+    for(int i = 0; i < NUM_LINHAS; i++){
+        for(int j = 0; j < NUM_COLUNAS; j++){
+            printf("%c", matriz[i][j]);
         }
         printf("\n");
     }
-    // for(int i = 0; i <= NUM_LINHAS; i++){
-    //     for(int j = 0; j <= NUM_COLUNAS; j++){
-    //         printf(" %d ", matriz[i][j]);
-    //     }
-    //     printf("\n");
-    // }
 
     if(fclose(fp) != 0){
         perror("Erro: fechamento do arquivo sem sucesso");

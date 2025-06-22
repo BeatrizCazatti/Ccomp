@@ -1,5 +1,21 @@
-X  XX X
-  X    
- X X  X
-X X XXX
-5 3
+XXXXXXXXXXXXXXXXXXXX
+X       X          X
+X       X          X
+X       X          X
+X       X          X
+XXXXXXXXX          X
+X                  X
+X                  X
+X                  X
+X                  X
+X                  X
+XXXXXXXXXXXXXXXXXXXX
+X        X         X
+X        X         X
+X        X         X
+X        X         X
+X        X         X
+X        X         X
+X        X         X
+XXXXXXXXXXXXXXXXXXXX
+3 3
