@@ -29,102 +29,93 @@ typedef struct{
     char conta[TAM_CONTA + 1];
     float valor_hora;
 }DadosFuncionario;
-int carrega_funcionarios(DadosFuncionario *func, FILE* fp);
-//int carrega_mes
-//int imprime_folha_de_pagamento
 
-int main () {
-    DadosFuncionario funcionarios[10]; //cria um array de structs
+typedef struct {
+    char matricula[TAM_MATRICULA + 1];
+	int horas;
+} Mes;
 
-    //abre
-    FILE* fp = fopen("Funcionarios.txt", "r");
-    if (fp == NULL) {
-        perror("Erro ao abrir o arquivo Funcionarios.txt");
-        return 0;
-    }
+void carregar_funcionarios(DadosFuncionario funcionarios[], FILE * fp, int numfunc);
+void carregar_mes(Mes mes[], FILE * fp, int numfunc);
+void bubble_sort(DadosFuncionario ref[], int numfunc);
+void imprimir_folha(DadosFuncionario funcionarios[], Mes mes[], int numfunc);
 
-    for(int i = 0; i <= 10; i++){
-        carrega_funcionarios(&funcionarios[i], fp);
-        printf(".%s.\n", funcionarios[i].nome);
-        printf(".%s.\n", funcionarios[i].matricula);
-        printf(".%s.\n", funcionarios[i].endereco);
-        printf(".%s.\n", funcionarios[i].cpf);
-        printf(".%s.\n", funcionarios[i].cod_banco);
-        printf(".%s.\n", funcionarios[i].agencia);
-        printf(".%s.\n", funcionarios[i].conta);
-        printf(".%f.\n", funcionarios[i].valor_hora);
-    }
 
-    fclose(fp);
-    return 0;
+void carregar_funcionarios(DadosFuncionario funcionarios[], FILE * fp, int numfunc) {
+	int i;
+	for (i = 0; i < numfunc; i++) {
+		fgets(funcionarios[i].nome, TAM_NOME+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].matricula, TAM_MATRICULA+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].endereco, TAM_ENDERECO+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].cpf, TAM_CPF+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].cod_banco, TAM_COD_BANCO+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].agencia, TAM_AGENCIA+1, fp);
+		fgetc(fp);
+		fgets(funcionarios[i].conta, TAM_CONTA+1, fp);
+		fgetc(fp);
+		fscanf(fp, "%f", &funcionarios[i].valor_hora);
+		fgetc(fp);
+	}
+	fclose(fp);
+} 
+
+void carregar_mes(Mes mes[], FILE * fp, int numfunc) {
+	int i;
+	for (i = 0; i < numfunc; i++) {
+		fgets(mes[i].matricula, TAM_MATRICULA+1, fp);
+		fgetc(fp);
+		fscanf(fp, "%d", &mes[i].horas);
+		fgetc(fp);
+	}
+	fclose(fp);
 }
 
-int carrega_funcionarios (DadosFuncionario *func, FILE* fp){
-    char linha[300]; //buffer
-    fgets(linha, sizeof(linha), fp);
-
-    // sscanf(linha,
-    // "%50c%12c%65c",
-    // (*func).nome,
-    // (*func).matricula,
-    // (*func).endereco
-    // );
-    // // (*func).cpf,
-    // // (*func).cod_banco,
-    // // (*func).agencia,
-    // // (*func).conta,
-    // // &(*func).valor_hora
-    // (*func).nome[TAM_NOME] = '\0';
-    // (*func).matricula[TAM_MATRICULA] = '\0';
-    // (*func).endereco[TAM_ENDERECO] = '\0';
-    // (*func).cpf[TAM_CPF] = '\0';
-    // (*func).cod_banco[TAM_COD_BANCO] = '\0';
-    // (*func).agencia[TAM_AGENCIA] = '\0';
-    // (*func).conta[TAM_CONTA] = '\0';
-    // Calcula os offsets para cada campo na linha
-    int offset = 0;
-
-    // Nome (TAM_NOME caracteres)
-    strncpy(func->nome, linha + offset, TAM_NOME);
-    func->nome[TAM_NOME] = '\0'; // Nulo-termina a string
-    offset += TAM_NOME; // Avança o offset
-
-    // Matrícula (TAM_MATRICULA caracteres)
-    strncpy(func->matricula, linha + offset, TAM_MATRICULA);
-    func->matricula[TAM_MATRICULA] = '\0';
-    offset += TAM_MATRICULA;
-
-    // Endereço (TAM_ENDERECO caracteres)
-    strncpy(func->endereco, linha + offset, TAM_ENDERECO);
-    func->endereco[TAM_ENDERECO] = '\0';
-    offset += TAM_ENDERECO;
-
-    // CPF (TAM_CPF caracteres)
-    strncpy(func->cpf, linha + offset, TAM_CPF);
-    func->cpf[TAM_CPF] = '\0';
-    offset += TAM_CPF;
-
-    // Código do Banco (TAM_COD_BANCO caracteres)
-    strncpy(func->cod_banco, linha + offset, TAM_COD_BANCO);
-    func->cod_banco[TAM_COD_BANCO] = '\0';
-    offset += TAM_COD_BANCO;
-
-    // Agência (TAM_AGENCIA caracteres)
-    strncpy(func->agencia, linha + offset, TAM_AGENCIA);
-    func->agencia[TAM_AGENCIA] = '\0';
-    offset += TAM_AGENCIA;
-
-    // Conta (TAM_CONTA caracteres)
-    strncpy(func->conta, linha + offset, TAM_CONTA);
-    func->conta[TAM_CONTA] = '\0';
-    offset += TAM_CONTA;
-
-    // Valor da Hora (TAM_VALOR_HORA caracteres)
-    // Copia para um buffer temporário para conversão
-    //strncpy(temp_valor_hora, linha + offset, TAM_VALOR_HORA);
-    //temp_valor_hora[TAM_VALOR_HORA] = '\0'; // Nulo-termina para atof
-    //func->valor_hora = atof(temp_valor_hora); // Converte string para float
-
-
-    return 0;
+void bubble_sort(DadosFuncionario ref[], int numfunc) {
+	int i, j, pos;
+	for (i = 0; i < numfunc; i++) {
+		for (j = 0; j < numfunc-i-1; j++ ) {
+			for (pos = 0; pos < 51; pos++) {
+				if (ref[j].nome[pos] > ref[j+1].nome[pos]) {
+					DadosFuncionario aux = ref[j];
+					ref[j] = ref[j+1];
+					ref[j+1] = aux;
+					break;
+				} else if (ref[j].nome[pos] < ref[j+1].nome[pos]) {
+					break;
+				}
+			}
+		}
+	}
 }
+
+void imprimir_folha(DadosFuncionario funcionarios[], Mes mes[], int numfunc) {
+	int i, j;
+	for (i = 0; i < numfunc; i++) {
+		for (j = 0; j < numfunc; j++) {
+			if (strcmp(funcionarios[i].matricula, mes[j].matricula) == 0) {
+				printf("%s|%s|%s|%s|%s|%.2f\n", funcionarios[i].nome, funcionarios[i].cpf, funcionarios[i].cod_banco, funcionarios[i].agencia, funcionarios[i].conta, funcionarios[i].valor_hora*mes[j].horas);
+			}
+		}
+	}
+}
+
+int main() {
+	FILE * arquivo1 = fopen("Funcionarios.txt", "r"), * arquivo2 = fopen("Novembro.txt", "r");
+	if (arquivo1 == NULL || arquivo2 == NULL)
+		return 1;
+		
+	DadosFuncionario funcionarios[10];
+	Mes mes[10];
+	
+	carregar_funcionarios(funcionarios, arquivo1, 10);
+	carregar_mes(mes, arquivo2, 10);
+	bubble_sort(funcionarios, 10);
+	imprimir_folha(funcionarios, mes, 10);
+	return 0;
+}
+
