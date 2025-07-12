@@ -4,11 +4,12 @@
 
 #include <stdio.h>
 
-#define MAX(A, B) ((A) > (B) ? (A) : (B));
+#define SWAP(t, x, y) { t temp = x; x = y; y = temp; }
+
 int main() {
-    a = 10;
-    b = 20;
-    MAX(a, b);
-    printf("%d", MAX);
+    int x = 30, y = 20;
+    printf("x:%d y:%d\n", x, y);
+    SWAP(int, x, y);
+    printf("x:%d y:%d", x, y);
     return 0;
 }
