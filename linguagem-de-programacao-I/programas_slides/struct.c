@@ -22,12 +22,12 @@ int main () {
     printf("primeiro.x = %hd\n", primeiro.y);
     printf("primeiro.x = %s\n", primeiro.palavra);
 
-    // struct coord * criaElem( short x, short y){
+    // struct coord * criaElem(short x, short y){
     //     struct coord * p = malloc(sizeof(* p));
-    //         p->x = x;
-    //         p->y = y;
-    //         p->next = NULL;
-    //     return p;
+    //     p->x = x;
+    //     p->y = y;
+    //     p->next = NULL;
+    //   return p;
     // }
 
     return 0;
