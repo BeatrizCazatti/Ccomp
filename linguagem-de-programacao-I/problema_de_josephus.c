@@ -14,22 +14,17 @@ struct no * cria_no (int n){
 }
 
 struct no * cria_lista (int n){
-    // struct no ** phead = malloc(sizeof(struct no));
-    // struct no *atual = NULL;
-    //*phead = cria_no(1);
-    //atual = *phead;
-    struct no **atual = cria_no(1);
-    struct no *phead = NULL;
+    struct no **atual = NULL;
+    struct no *phead = cria_no(1);
 
     atual = &phead;
 
     for(int i = 2; i <= n; i++){
-        
-        atual = &(*atual->prox);
-        atual = atual->prox;
+        atual = &((*atual)->prox);
+        *atual = cria_no(i);
     }
-    atual->prox = *phead;
-    return atual;
+    (*atual)->prox = phead;
+    return phead;
 }
 
 
