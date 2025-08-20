@@ -1,0 +1,45 @@
+import random
+
+A = [1, 9, 4, 6]
+
+def merge(A, p, q, r):
+  L = A[p:q]
+  R = A[q:r+1]
+  '''
+  for c in range(len(L)):
+    print(L[c])
+    
+  print()
+  print()
+  
+  for c in range(len(R)):
+    print(R[c])
+  '''
+  
+  i = j = k = 0 #variaveis de controle
+  
+  while i < q and j < r:
+    if(L[i] <= R[j]):
+      A[k] = L[i]
+      i += 1
+    else:
+      A[k] = R[j]
+      j += 1
+    k +=1
+  
+  while i < q:
+    A[k] = L[i]
+    i += 1
+    k += 1
+    
+  while j < r:
+    A[k] = R[j]
+    j += 1
+    k += 1
+    
+      
+  for c in range(r):
+    print(A[c])
+  
+merge(A, 0, 2, 4)
+  
