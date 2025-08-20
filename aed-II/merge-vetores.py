@@ -5,16 +5,6 @@ A = [1, 9, 4, 6]
 def merge(A, p, q, r):
   L = A[p:q]
   R = A[q:r+1]
-  '''
-  for c in range(len(L)):
-    print(L[c])
-    
-  print()
-  print()
-  
-  for c in range(len(R)):
-    print(R[c])
-  '''
   
   i = j = 0 #variaveis de controle
   k = p
