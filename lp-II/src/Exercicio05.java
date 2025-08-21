@@ -12,5 +12,6 @@ public class Exercicio05 {
         m = (t % 360) / 60;
         s = t - 360*h - m*60;
         System.out.printf("%d:%d:%d\n", h, m, s);
+        teclado.close();
     }
 }
