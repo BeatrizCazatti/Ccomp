@@ -1,6 +1,6 @@
 import random
 
-A = [1, 9, 4, 6]
+A = [4, 9, 4, 6, 8, 2]
 
 def merge(A, p, q, r):
   L = A[p:q]
@@ -32,5 +32,5 @@ def merge(A, p, q, r):
   for c in range(r):
     print(A[c])
   
-merge(A, 0, 2, 4)
+merge(A, 0, 3, 6)
   
