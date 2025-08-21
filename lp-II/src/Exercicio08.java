@@ -17,5 +17,6 @@ public class Exercicio08 {
         } else {
             System.out.printf("O valor a ser pago eh %.2f", q*p);
         }
+        teclado.close();
     }
 }

@@ -6,8 +6,7 @@ public class Exercicio07 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         int n = teclado.nextInt();
-        String msg = (n % 2) == 0 ? "par" : "impar";
-        System.out.println(msg);
+        System.out.println((n % 2) == 0 ? "par" : "impar");
         teclado.close();
     }
 }
