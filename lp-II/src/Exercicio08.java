@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 /*Leia duas variáveis uma para armazenar a quantidade de kWh
@@ -12,11 +11,8 @@ public class Exercicio08 {
         float q = teclado.nextFloat();
         float p = teclado.nextFloat();
 
-        if(q < 150){
-            System.out.printf("O valor a ser pago eh %.2f", (q*p)*0.9);
-        } else {
-            System.out.printf("O valor a ser pago eh %.2f", q*p);
-        }
+        System.out.print("O valor a ser pago eh ");
+        System.out.println((q < 150) ? (q*p)*0.9 : q*p);
         teclado.close();
     }
 }

@@ -2,6 +2,10 @@ n = int(input())
 x = int(input())
 y = int(input())
 
+matriz = [n*n]
+for i in range(n*n):
+    matriz[i] = 0
+print(matriz)
 for i in range(1, n+1):
     for j in range(1, n+1):
         if(i == x and j == y):
@@ -13,14 +17,16 @@ for i in range(1, n+1):
 def tromino(n, x, y):
     mid = int(n / 2)
     print(f'mid={mid}')
-    if(x <= mid and y >= mid):
+    if(x <= mid and y > mid):
         print('1Q')
     if(x <= mid and y <= mid):
         print('2Q')
-    if(x >= mid and y <= mid):
+    if(x > mid and y <= mid):
         print('3Q')
-    if(x >= mid and y <= mid):
+    if(x > mid and y > mid):
         print('4Q')
 
 tromino(n, x, y)
 
+#def colocar_tromino(mid):
+    
