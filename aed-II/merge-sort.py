@@ -1,29 +1,11 @@
-from math import floor
-import random
+from funcoes import gera_aleatorio, salva_vetores, carrega_vetores
+from time import time
 
-INTERVALO = 100
-
-def gera_aleatorio(v, n):
-    for i in range(n):
-        v.append(random.randint(INTERVALO*(-1), INTERVALO))
-
-def salva_vetores(nomeArquivo, vets):
-    file = open(nomeArquivo, "w")
-    for i in vets:
-        file.write(f'{i}')
-        file.write('\n')
-    file.close()
-
-def carrega_vetores(nomeArquivo, vets):
-    file = open(nomeArquivo, "r")
-    for v in vets:
-        for linha in file:
-            v = linha
-    file.close()
+tmpInicio = time()
 
 def merge_sort(v, p, r):
     if (p < r):
-        q = floor((p + r)/2)
+        q = (p + r)//2
         merge_sort(v, p, q)
         merge_sort(v, q+1, r)
         merge(v, p, q, r)
@@ -62,11 +44,11 @@ v1 = []
 v2 = []
 v3 = []
 
-gera_aleatorio(v1, 100)
-gera_aleatorio(v2, 1000)
-gera_aleatorio(v3, 10000)
+# gera_aleatorio(v1, 100)
+# gera_aleatorio(v2, 1000)
+# gera_aleatorio(v3, 10000)
 
-salva_vetores("merge-sort-entrada.txt", [v1, v2, v3])
+# salva_vetores("merge-sort-entrada.txt", [v1, v2, v3])
 
 carrega_vetores("merge-sort-entrada.txt", [v1, v2, v3])
 
@@ -75,3 +57,5 @@ merge_sort(v2, 0, len(v2)-1)
 merge_sort(v3, 0, len(v3)-1)
 
 salva_vetores("merge-sort-saida.txt", [v1, v2, v3])
+
+print(f"O algoritmo merge sort demorou {time() - tmpInicio}s")
