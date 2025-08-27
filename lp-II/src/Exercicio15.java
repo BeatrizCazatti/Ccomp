@@ -11,24 +11,12 @@ public class Exercicio15 {
         int numVogal = 0, numDigito = 0, numOutros = 0;
         while(res != '.'){
             switch (res) {
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                numVogal++;
-                break;
-                case '1':
-                case '2':
-                case '3':
-                case '4':
-                case '5':
-                case '6':
-                case '7':
-                case '8':
-                case '9':
-                numDigito++;
-                break;
+                case 'a': case 'e': case 'i': case 'o': case 'u':
+                    numVogal++;
+                    break;
+                    case '0': case '1': case '2': case '3': case '4': case '5': case '6': case '7': case '8': case '9':
+                    numDigito++;
+                    break;
                 default:
                     numOutros++;
             }

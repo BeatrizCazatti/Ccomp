@@ -44,11 +44,11 @@ v1 = []
 v2 = []
 v3 = []
 
-# gera_aleatorio(v1, 100)
-# gera_aleatorio(v2, 1000)
-# gera_aleatorio(v3, 10000)
+gera_aleatorio(v1, 100)
+gera_aleatorio(v2, 1000)
+gera_aleatorio(v3, 10000)
 
-# salva_vetores("merge-sort-entrada.txt", [v1, v2, v3])
+salva_vetores("merge-sort-entrada.txt", [v1, v2, v3])
 
 carrega_vetores("merge-sort-entrada.txt", [v1, v2, v3])
 
