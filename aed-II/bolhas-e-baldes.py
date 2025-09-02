@@ -1,29 +1,31 @@
-qtd = 0
 def merge_sort(v, p, r):
+    qtdInv = 0
     if (p < r):
         q = (p + r)//2
-        merge_sort(v, p, q)
-        merge_sort(v, q+1, r)
-        merge(v, p, q, r)
+        qtdInv = merge_sort(v, p, q)
+        qtdInv += merge_sort(v, q+1, r)
+        qtdInv += merge(v, p, q, r)
+    return qtdInv
 
 def merge(v, p, q, r):
+    qtdInv = 0
     n1 = q - p + 1
     n2 = r - q
-
+    
     L = v[p : q+1]
     R = v[q+1 : r+1]
+
 
     i = j = 0
     k = p
     while i < n1 and j < n2:
-        if(L[i] <= v[k]):
-            v[k] = L[i]
+        if(L[i] <= R[j]):
+            v[k]  = L[i]
             i += 1
-            qtd += 1
         else:
             v[k] = R[j]
+            qtdInv += (n1 - i)
             j += 1
-            qtd += 1
         k += 1
     
     while i < n1:
@@ -35,18 +37,11 @@ def merge(v, p, q, r):
         v[k] = R[j]
         j += 1
         k += 1
-    print(v)    
+    return qtdInv
 
 
-numeros = []
-N = int(input("N: "))
-while N != 0:
-    for i in range(N):
-        num = int(input("num: "))
-        numeros.append(num)
-    N = int(input("N: "))
-print(numeros)
-merge_sort(numeros, 0, len(numeros))
-print(numeros)
-print(qtd)
-    
+numeros = [int(num) for num in input().split()]
+while numeros[0] != 0:
+    qtdInv = merge_sort(numeros[1:], 0, len(numeros) - 2)
+    print("Carlos" if qtdInv % 2 == 0 else "Marcelo")
+    numeros = [int(num) for num in input().split()]
