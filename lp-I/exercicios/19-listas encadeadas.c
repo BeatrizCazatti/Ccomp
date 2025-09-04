@@ -10,3 +10,24 @@ Saída: 20
 
 Entrada: 0
 Saída: A lista esta vazia.*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct no {
+    int valor;
+    struct no *prox;
+};
+
+struct no *cria_lista (int num) {
+    int valor = num;
+    
+}
+int main() {
+    int num;
+    do {
+        scanf("%d", &num);
+        printf("%d", num);
+    } while (num != 0);
+    return 0;
+}
