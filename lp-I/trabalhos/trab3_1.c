@@ -22,11 +22,7 @@ int main () {
     
     while((caracter = frase[i]) != '\0'){
         switch (caracter) {
-            case ' ':
-            case ',':
-            case ';':
-            case '.':
-            case ':':
+            case ' ': case ',': case ';': case '.': case ':':
                 estado = OUT;
                 break;
 
