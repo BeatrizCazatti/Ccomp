@@ -6,6 +6,7 @@ public class Retangulo {
     private int largura;
     private int altura;
 
+    //quadrado: apenas 3 parametros
     public Retangulo(int x, int y, int lado) {
         this.x = x;
         this.y = y;
@@ -18,6 +19,37 @@ public class Retangulo {
         this.y = y;
         this.altura = altura;
         this.largura = largura;
+    }
+
+    public int getX(){
+        return x;
+    }
+    public int getY() {
+        return y;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getLargura() {
+        return largura;
+    }
+    
+    public int getAltura() {
+        return altura;
+    }
+
+    public void setLargura(int largura) {
+        if(largura > 0) this.largura = largura;
+    }
+
+    public void setAltura(int altura) {
+        if(altura > 0) this.altura = altura;
     }
 
     public void desenhar(){
