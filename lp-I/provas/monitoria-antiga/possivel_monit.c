@@ -7,3 +7,25 @@ inteiras entre zero e 255 em ordem crescente, incluindo as chaves que não apare
 devem aparecer com o respectivo número de ocorrências zerado. No relatório, cada valor chave e o número de ocorrências correspondente devem ser
 apresentados em uma linha na tela do terminal. As funções que trabalham com a lista encadeada não podem ser recursivas.*/
 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct no {
+    int key;
+    int occurrences = 0;
+    struct no* nextNode;
+};
+
+struct no* cria_no(int);
+struct no* cria_lista_vazia();
+struct no* encontra_posicao(struct no**);
+void imprime_relatorio();
+
+
+int main (int argc, char* argv[]){
+    char *arq[20];
+    *arq = argv[1];
+    
+
+    return 0;
+}
