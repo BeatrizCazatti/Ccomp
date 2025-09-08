@@ -10,15 +10,17 @@ apresentados em uma linha na tela do terminal. As funções que trabalham com a 
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_CHAVE 20
+
 struct no {
     int key;
-    int occurrences = 0;
+    int occurrences;
     struct no* nextNode;
 };
 
-struct no* cria_no(int);
-struct no* cria_lista_vazia();
-struct no* encontra_posicao(struct no**);
+//int le_arquivo(arq);
+struct no* inserir(int);
+struct no* encontra_posicao(int);
 void imprime_relatorio();
 
 
@@ -26,6 +28,30 @@ int main (int argc, char* argv[]){
     char *arq[20];
     *arq = argv[1];
     
+    FILE *fp = fopen(*arq, "r");
+
+    if(!fp) {
+        printf("Erro ao abrir arquivo!");
+        return 1;
+    }
+
+    //cria lista encadeada vazia:
+    // struct no* phead == NULL;
+    // phead->nextNode == NULL;
+    int chave;
+
+    //lê as chaves
+    int num;
+    struct no* atual = NULL;
+    while(fscanf(fp, "%d", &num) == 1){
+        atual = inserir(num);
+        
+    }
+
+    //imprimir chaves
+    for(int i = 0; i < MAX_CHAVE; i++){
+        (phead->prox)
+    }
 
     return 0;
 }
