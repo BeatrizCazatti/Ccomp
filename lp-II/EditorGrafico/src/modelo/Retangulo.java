@@ -53,27 +53,28 @@ public class Retangulo {
     }
 
     public void desenhar(){
-        System.out.printf("Retangulo(%d, %d, %d, %d)\n", this.x, this.y, this.largura, this.altura);
+        if(altura != largura){ System.out.printf("Retangulo(%d, %d, %d, %d)\n", this.x, this.y, this.largura, this.altura);
+        } else { System.out.printf("Quadrado(%d, %d, %d)\n", this.x, this.y, this.largura); }
         //y:
         for(int c = 0; c < this.y - 1; c++){
             System.out.print("\n");
         }
-        //margem x
-        for(int i = 0; i <= this.altura + 1; i++){
+        for(int i = 1; i <= this.altura; i++){
+            //margem x
             for(int c = 0; c < this.x; c++){
                 System.out.print(" ");
             }
-            if(i == 0 || i == this.altura){
+            if(i == 1 || i == this.altura){
                 for(int j = 0; j < this.largura; j++){
-                    System.out.print('-');
+                    System.out.print("* ");
                 }
-                System.err.println();
+                System.out.println();
             }else{
-                System.out.print('|');
+                System.out.print("* ");
                 for(int k = 0; k < this.largura - 2; k++){
-                    System.out.print(' ');
+                    System.out.print("  ");
                 }
-                System.out.print("|\n");
+                System.out.print("* \n");
             }
         }
     }
