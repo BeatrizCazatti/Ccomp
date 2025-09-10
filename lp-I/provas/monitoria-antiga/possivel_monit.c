@@ -19,9 +19,9 @@ struct no {
 };
 
 //int le_arquivo(arq);
-struct no* inserir(int);
-struct no* encontra_posicao(int);
-void imprime_relatorio();
+int inserir(int, struct no**);
+//int procurar(int, struct no*);
+//void imprime_relatorio();
 
 
 int main (int argc, char* argv[]){
@@ -35,23 +35,53 @@ int main (int argc, char* argv[]){
         return 1;
     }
 
-    //cria lista encadeada vazia:
-    // struct no* phead == NULL;
-    // phead->nextNode == NULL;
-    int chave;
-
     //lê as chaves
     int num;
-    struct no* atual = NULL;
+    struct no* histograma = NULL;
     while(fscanf(fp, "%d", &num) == 1){
-        atual = inserir(num);
-        
+        for(int i = 0; i < MAX_CHAVE; i++){
+            inserir(num, &histograma);
+        }
     }
-
-    //imprimir chaves
-    for(int i = 0; i < MAX_CHAVE; i++){
-        (phead->prox)
+    //imprimir relatorio
+    for(int j = 0; j < MAX_CHAVE; j++){
+        struct no *p = histograma;
+        while(p != NULL){
+            if(p->key == j)
+                printf("%d\n", p->occurrences);
+            if(p->key > j)
+                break;
+            p = p->nextNode;
+        }
+        printf("0\n");
     }
+}
 
+int inserir(int chave, struct no**histograma){
+    struct no* anterior = NULL;
+    struct no* atual = *histograma;
+    
+    while(atual != NULL && atual->key < chave){
+        anterior = atual; //////////
+        atual = atual->nextNode;
+    }
+    
+    //numero já está na lista só incrementa as ocorrencias
+    if(atual != NULL && atual->key == chave){ ///////////////
+        atual->occurrences++;
+        return 0; ///////////
+    }
+    
+    struct no *novo = malloc(sizeof(struct no));
+    novo->key = chave;
+    novo->occurrences = 1;
+    novo->nextNode = NULL;
+    
+    //insercao no inicio
+    if(anterior == NULL){
+        *histograma = novo;
+    }else{
+        anterior->nextNode = novo;
+    }
     return 0;
 }
