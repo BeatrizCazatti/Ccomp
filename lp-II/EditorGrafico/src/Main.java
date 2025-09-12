@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import modelo.Circulo;
 import modelo.Retangulo;
+import modelo.Triangulo;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,12 +10,14 @@ public class Main {
         System.out.println("O que voce quer desenhar?");
         System.out.println("1 - Retangulo");
         System.out.println("2 - Circulo");
+        System.out.println("3 - Triangulo");
         int fig = teclado.nextInt();
         
+        System.out.println("Quantos?");
+        int n = teclado.nextInt();
+
         switch (fig) {
             case 1:
-                System.out.println("Quantos?");
-                int n = teclado.nextInt();
                 Retangulo[] retangulos = new Retangulo[n];
                 
                 for (int i = 0; i < n; i++){
@@ -29,21 +32,34 @@ public class Main {
                 break;
 
             case 2:
-                System.out.println("Quantos?");
-                int m = teclado.nextInt();
-                Circulo[] circulos = new Circulo[m];
+                Circulo[] circulos = new Circulo[n];
                 
-                for(int j = 0; j < m; j++){
+                for(int j = 0; j < n; j++){
                     int r = teclado.nextInt();
                     circulos[j] = new Circulo(r);
                     System.out.println(circulos[j]);
                     circulos[j].desenhar();
                 }
                 break;
+
+            case 3:
+                Triangulo[] triangulos = new Triangulo[n];
+                
+                for(int j = 0; j < n; j++){
+                    int a = teclado.nextInt();
+                    int b = teclado.nextInt();
+                    int c = teclado.nextInt();
+                    triangulos[j] = new Triangulo(a, b, c);
+                    System.out.println(triangulos[j]);
+                    triangulos[j].desenhar();
+                }
+                
+                break;
             default:
                 System.out.println("Digite uma opcao valida");
         }
 
+        
         teclado.close();
     }
 }
