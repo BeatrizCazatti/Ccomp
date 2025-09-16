@@ -3,17 +3,27 @@ package modelo;
 
 public class Circulo {
     private int r;
+    private int x;
+    private int y;
 
-    public Circulo(int r){
+    public Circulo(int r, int x, int y){
         this.r = r;
+        this.x = x;
+        this.y = y;
     }
 
     public void desenhar(){
-        for (int y = 0; y <= r*2; y++) {
-            for (int x = 0; x <= r*2; x++) {
+        for(int c = 0; c < this.y - 1; c++){
+            System.out.print("\n");
+        }
+        for (int i = 0; i <= r*2; i++) {
+            for(int c = 0; c < this.x; c++){
+                System.out.print(" ");
+            }
+            for (int j = 0; j <= r*2; j++) {
                 //distância p o centro
-                int dx = x - r;
-                int dy = y - r;
+                int dx = i - r;
+                int dy = j - r;
                 //f(x,y) = x2 + y2 − r2
                 double dist = dx * dx + dy * dy - r*r;
                 //f(x,y) < 0 -> dentro
