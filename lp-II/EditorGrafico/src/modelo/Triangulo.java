@@ -3,13 +3,13 @@ package modelo;
 public class Triangulo {
     private int a, b, c;
     
-    private Triangulo(int a, int b, int c) {
+    public Triangulo(int a, int b, int c) {
         if(a < c + b && b < a + c && c < a + b){
             this.a = a; this.b = b; this.c = c;
         }
     }
 
-    private Triangulo(Triangulo tri){
+    public Triangulo(Triangulo tri){
         this.a = tri.a; 
         this.b = tri.b; 
         this.c = tri.c;
