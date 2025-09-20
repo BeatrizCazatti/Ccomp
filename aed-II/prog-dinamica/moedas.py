@@ -1,8 +1,8 @@
 # p quantidade de tipos de moedas
 # q quantia a ser calculada
-p = 6
-q = 26
-V = [1, 5, 10, 25, 50, 100]
+p = 2
+q = 4
+V = [1, 2]
 
 T = [[-1 for _ in range(q + 1)] for _ in range(p + 1)]
 
@@ -23,7 +23,8 @@ def troco(p, q):
     
     return T[p][q]
 
-print(f"Número de maneiras: {troco(p, q)}")
+print(troco(p, q))
 
+#mostrar tabela
 for linha in T:
     print(linha)
