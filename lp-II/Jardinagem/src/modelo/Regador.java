@@ -9,6 +9,11 @@ public class Regador {
         this.capacidadeMl = capacidade;
     }
 
+    
+    public int getVolumeAtualMl() {
+        return volumeAtualMl;
+    }
+
     public boolean regar(int mlSolicitados, Planta planta){
         if(volumeAtualMl - mlSolicitados > 0 && planta.sede() > 0){
             volumeAtualMl -= mlSolicitados;
@@ -21,10 +26,10 @@ public class Regador {
     }
 
     public void encher(int ml){
-        if(ml <= capacidadeMl - volumeAtualMl){
+        if(volumeAtualMl + ml <= capacidadeMl){
             volumeAtualMl += ml;
         }else{
-            volumeAtualMl += capacidadeMl - volumeAtualMl;
+            volumeAtualMl = capacidadeMl;
         }
     }
 }

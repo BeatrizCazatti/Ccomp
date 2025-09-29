@@ -6,23 +6,24 @@ public class TesouraDePoda {
     public TesouraDePoda() {
         this.percentualDesgastado = 0;
     }
-
+    public int getPercentualDesgastado(){
+        return this.percentualDesgastado;
+    }
     public int podar(int qtdRamos, Planta planta){
-        //int qtdRamosPodados = 0;
-        int podePodar = 100 - percentualDesgastado;
-        if(podePodar > 0){
-            this.percentualDesgastado -= qtdRamos;
-            planta.serPodada(qtdRamos);
-            return qtdRamos;
+        int qtdRamosPodemSerPodados = 0;
+        if(percentualDesgastado + qtdRamos <= 100){
+            qtdRamosPodemSerPodados = qtdRamos;
         } else {
-            this.percentualDesgastado = 100;
-            planta.serPodada(100 - qtdRamos);
+            qtdRamosPodemSerPodados = 100 - percentualDesgastado;
         }
-        return podePodar;
+        int qtdRamosPodados = planta.serPodada(qtdRamosPodemSerPodados);
+        percentualDesgastado += qtdRamosPodados;
+        return qtdRamosPodados;
     }
 
     public void afiar(int qtdSegundos){
-        if(percentualDesgastado - qtdSegundos > 0) {
+        if (qtdSegundos < 0) return;
+        if(percentualDesgastado - qtdSegundos >= 0) {
             percentualDesgastado -= qtdSegundos;
         } else {
             percentualDesgastado = 0;

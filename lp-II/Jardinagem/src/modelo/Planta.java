@@ -2,34 +2,30 @@ package modelo;
 
 public class Planta {
     private int percentualUmidade = 0;
-    private int tamanhoCm;
+    private float tamanhoCm;
     private int qtdRamos;
 
     public Planta(int percentualUmidadede, int qtdRamos) {
         this.percentualUmidade = percentualUmidadede;
         this.qtdRamos = qtdRamos;
-        this.tamanhoCm = qtdRamos*2;
+        this.tamanhoCm = qtdRamos*0.5f;
     }
 
     public int absorverAgua(int ml){
-        int podeAbsorver = 100 - percentualUmidade;
-        if(this.percentualUmidade + ml <= 100){
-            percentualUmidade += ml;
-            return ml;
-        }else{
-            return podeAbsorver;
-        }
+        if(ml < 0) return 0;
+        int qtdAbsorvida = 0;
+        if(this.percentualUmidade + ml <= 100)qtdAbsorvida = ml;
+        else qtdAbsorvida = 100 - percentualUmidade;
+        percentualUmidade += qtdAbsorvida;
+        return qtdAbsorvida;
     }
 
-    public int serPodada(int qtdRamos) {
-        int podePodar = tamanhoCm - (int)(qtdRamos * 0.5);
-        if(podePodar >= 0){
-            this.tamanhoCm -= qtdRamos;
-            return qtdRamos;
-        }else{
-            this.tamanhoCm = 0;
-        }
-        return podePodar;
+    public int serPodada(int ramos) {
+        int qtdRamosPodados = 0;
+        if(tamanhoCm - ramos * 0.5f >= 0) qtdRamosPodados = ramos;
+        else qtdRamosPodados = this.qtdRamos;
+        this.tamanhoCm -= qtdRamosPodados * 0.5f;
+        return qtdRamosPodados;
     }
 
     public int sede(){
