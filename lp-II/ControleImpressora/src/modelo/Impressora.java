@@ -7,38 +7,44 @@ public class Impressora {
     private int qtdFolhas;
 
     public Impressora(int nivelTinta, int qtdFolhas) {
-        this.status = false;
-        this.nivelTinta = nivelTinta;
-        this.qtdFolhas = qtdFolhas;
+        if(nivelTinta >= 0 && nivelTinta <= 100 && qtdFolhas >= 0 && qtdFolhas <= 100){
+            this.status = false;
+            this.nivelTinta = nivelTinta;
+            this.qtdFolhas = qtdFolhas;
+        }
     }
 
     public int imprimir(Documento doc) {
-        if(this.status == true && this.qtdFolhas > 0 && this.nivelTinta > 0.2f) {
-            if(this.qtdFolhas >= doc.folhasAImprimir() && this.nivelTinta >= doc.folhasAImprimir()*0.2f){
-                return doc.folhasAImprimir();
-            } else {
-                return this.qtdFolhas - nivelTinta/0.2f;
-            }
-        }
+        if (!status) return 0;
+        if (qtdFolhas <= 0 || nivelTinta <= 0) return 0;
+
+        int maxPorTinta = (int)nivelTinta * 5;
+        int possivel = maxPorTinta <= qtdFolhas ? maxPorTinta : qtdFolhas;
+        int folhasImpressas = doc.folhasAImprimir() <= possivel ? doc.folhasAImprimir() : possivel;
+        doc.registrarImpressao(folhasImpressas);
+        this.qtdFolhas -= folhasImpressas;
+        this.nivelTinta -= folhasImpressas / 5f;
+
+        return folhasImpressas;
     }
     
     public void reabastecerTinta(int qtdTinta) {
-        if (qtdTinta < 0) return;
+        if (qtdTinta <= 0) return;
         if (this.nivelTinta + qtdTinta <= 100) nivelTinta += qtdTinta;
         else nivelTinta = 100;
     }
 
     public void reabastecerFolhas(int qtdFolhas){
-        if (qtdFolhas < 0) return;
+        if (qtdFolhas <= 0) return;
         if (this.qtdFolhas + qtdFolhas <= 100) this.qtdFolhas += qtdFolhas;
         else this.qtdFolhas = 100;
     }
 
-    public void ligar(){
-        this.status = true;
-    }
+    public void ligar() { this.status = true; }
 
-    public void desligar(){
-        this.status = false;
-    }
+    public void desligar(){ this.status = false; }
+
+    public float getNivelTinta() { return nivelTinta; }
+    public int getQtdFolhas() { return qtdFolhas; }
+    public boolean isLigada() { return status; }
 }

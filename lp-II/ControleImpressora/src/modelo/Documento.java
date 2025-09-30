@@ -10,15 +10,16 @@ public class Documento {
     }
 
     public int folhasAImprimir(){
-        if(this.folhasImpressas % this.folhasTotais == 0) return this.folhasImpressas / this.folhasTotais;
-        else return this.folhasTotais - this.folhasImpressas;
+        if(this.folhasImpressas % this.folhasTotais == 0) return this.folhasTotais;
+        else return this.folhasTotais - (this.folhasImpressas % this.folhasTotais);
     }
 
     public void registrarImpressao(int folhasImpressas){
-        this.folhasImpressas = folhasImpressas;
+        this.folhasImpressas += folhasImpressas;
     }
 
     public float verificarQtdCopiasImpressas(){
-        return this.folhasTotais / this.folhasImpressas;
+        if(this.folhasTotais == 0) return 0;
+        else return (float)this.folhasImpressas / this.folhasTotais;
     }
 }
