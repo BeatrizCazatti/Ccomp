@@ -3,6 +3,8 @@ import modelo.Documento;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        Documento doc = new Documento(10);
+        System.out.println(doc.folhasAImprimir());
+
     }
 }
