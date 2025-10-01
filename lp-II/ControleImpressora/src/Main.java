@@ -9,15 +9,13 @@ public class Main {
         brother.ligar();
 
         System.out.println("Iniciando impressão...");
-        int impressas = brother.imprimir(doc);
-        System.out.println("Folhas impressas: " + impressas);
+        System.out.println("Folhas impressas: " + brother.imprimir(doc));
         System.out.println("Cópias impressas até agora: " + doc.verificarQtdCopiasImpressas());
         System.out.println("Tinta restante: " + brother.getNivelTinta());
         System.out.println("Folhas restantes na impressora: " + brother.getQtdFolhas());
 
-        impressas = brother.imprimir(doc);
         System.out.println("\nNova tentativa de impressão:");
-        System.out.println("Folhas impressas: " + impressas);
+        System.out.println("Folhas impressas: " + brother.imprimir(doc));
         System.out.println("Cópias impressas até agora: " + doc.verificarQtdCopiasImpressas());
         System.out.println("Tinta restante: " + brother.getNivelTinta());
         System.out.println("Folhas restantes na impressora: " + brother.getQtdFolhas());
@@ -25,9 +23,9 @@ public class Main {
         brother.reabastecerFolhas(50);
         brother.reabastecerTinta(20);
 
-        impressas = brother.imprimir(doc);
+        
         System.out.println("\nApós reabastecimento:");
-        System.out.println("Folhas impressas: " + impressas);
+        System.out.println("Folhas impressas: " + brother.imprimir(doc));
         System.out.println("Cópias impressas até agora: " + doc.verificarQtdCopiasImpressas());
         System.out.println("Tinta restante: " + brother.getNivelTinta());
         System.out.println("Folhas restantes na impressora: " + brother.getQtdFolhas());
