@@ -11,7 +11,7 @@ def mochila01 (w, n):
             if(pesos[i - 1] >= j):
                 dp[i][j] = dp[i - 1][j]
             else:
-                dp[i][j] = max(valores[i - 1] + dp[i - 1][j - pesos[i-1]], dp[i-1][j])
+                dp[i][j] = max(valores[i - 1] + dp[i - 1][j - pesos[i - 1]], dp[i-1][j])
     return dp[n][w]
 
 print(mochila01(w, n))
