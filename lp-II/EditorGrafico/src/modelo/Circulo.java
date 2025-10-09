@@ -1,23 +1,21 @@
 package modelo;
-//import Math;
+
 
 public class Circulo {
     private int r;
-    private int x;
-    private int y;
+    private Ponto ponto;
 
     public Circulo(int r, int x, int y){
         this.r = r;
-        this.x = x;
-        this.y = y;
+        this.ponto = new Ponto(x, y);
     }
 
-    public void desenhar(){
-        for(int c = 0; c < this.y - 1; c++){
+    public void desenharDeVerdade(){
+        for(int c = 0; c < ponto.getY() - 1; c++){
             System.out.print("\n");
         }
         for (int i = 0; i <= r*2; i++) {
-            for(int c = 0; c < this.x; c++){
+            for(int c = 0; c < ponto.getX(); c++){
                 System.out.print(" ");
             }
             for (int j = 0; j <= r*2; j++) {
@@ -39,44 +37,6 @@ public class Circulo {
         }
     }
 
-    // public void desenhar(){
-    //     int espaco = r-1;
-    //     int preenche = r-1;
-    //     for(int i = 0; i < r; i++){
-    //         for(int c = 0; c < espaco; c++){
-    //             System.out.printf(".");
-    //         }
-    //         if(preenche <= 2*r){
-    //             preenche += 2;
-    //         }
-    //         for(int j = 0; j < preenche; j++){
-    //             System.out.printf("*");
-    //         }
-    //         System.out.println();
-    //         espaco--;
-    //     }
-
-    //     for(int l = 1; l < r; l++){
-    //         for(int j = 0; j < preenche; j++){
-    //             System.out.printf("*");
-    //         }
-    //         System.out.println();
-    //     }
-    //     espaco = 0;
-    //     for(int m = 0; m < r-1; m++){
-    //         espaco++;
-    //         preenche -= 2;
-    
-    //         for(int c = 0; c < espaco; c++){
-    //             System.out.printf(".");
-    //         }
-    //         for(int j = 0; j < preenche; j++){
-    //             System.out.printf("*");
-    //         }
-    //         System.out.println();
-    //     }
-    // }
-
     public int getR() {
         return r;
     }
@@ -84,4 +44,9 @@ public class Circulo {
     public void setR(int novoR) {
         if(r > 0) { r = novoR; }
     }
+
+    public void desenhar() {
+        System.out.printf("%s %d\n", ponto.desenhar(), this.r);
+    }
+
 }

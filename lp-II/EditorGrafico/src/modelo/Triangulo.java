@@ -1,7 +1,9 @@
 package modelo;
 
 public class Triangulo {
+    //segmento de reta, validar triangulo
     private int a, b, c;
+    private Ponto ponto;
     
     public Triangulo(int a, int b, int c) {
         if(a < c + b && b < a + c && c < a + b){

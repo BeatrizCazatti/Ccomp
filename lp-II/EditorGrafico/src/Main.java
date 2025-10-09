@@ -37,7 +37,6 @@ public class Main {
                 int x = teclado.nextInt();
                 int y = teclado.nextInt();
                 circulos[j] = new Circulo(r, x, y);
-                System.out.println(circulos[j]);
                 circulos[j].desenhar();
             }
         }
@@ -56,6 +55,7 @@ public class Main {
             System.out.println("Digite uma opcao valida");
         }
         
+
         teclado.close();
     }
 }
