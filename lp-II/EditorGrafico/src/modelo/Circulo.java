@@ -46,7 +46,7 @@ public class Circulo {
     }
 
     public void desenhar() {
-        System.out.printf("%s %d\n", ponto.desenhar(), this.r);
+        System.out.printf("%s r = %d\n", ponto.coordenadas(), this.r);
     }
 
 }

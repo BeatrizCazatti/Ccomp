@@ -8,6 +8,10 @@ public class Ponto {
         this.y = y;
     }
 
+    public void mover(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
     public int getX() {
         return x;
     }
@@ -24,12 +28,12 @@ public class Ponto {
         this.y = y;
     }
 
-    public String desenhar() {
-        return this.x + " " + this.y;
+    public String coordenadas() {
+        return "x = " + this.x + " " + " y = " + this.y;
     }
 
     public float distanciaPonto(Ponto ponto2){
-        return ;
+        return (float)Math.sqrt(Math.pow(this.x - ponto2.getX(), 2) + Math.pow(this.y - ponto2.getY(), 2));
     }
     
 }

@@ -20,23 +20,33 @@ public class Main {
             Retangulo[] retangulos = new Retangulo[n];
             
             for (int i = 0; i < n; i++){
+                System.out.printf("x = ");
                 int x = teclado.nextInt();
+                System.out.printf("y = ");
                 int y = teclado.nextInt();
+                System.out.printf("largura = ");
                 int largura = teclado.nextInt();
+                System.out.printf("altura = ");
                 int altura = teclado.nextInt();
                 retangulos[i] = new Retangulo(x, y, altura, largura);
                 System.out.println(retangulos[i]);
+                retangulos[i].desenharDeVerdade();
                 retangulos[i].desenhar();
+
             }
         }
         else if (fig == 2){
             Circulo[] circulos = new Circulo[n];
             
             for(int j = 0; j < n; j++){
+                System.out.printf("r = ");
                 int r = teclado.nextInt();
+                System.out.printf("x = ");
                 int x = teclado.nextInt();
+                System.out.printf("y =");
                 int y = teclado.nextInt();
                 circulos[j] = new Circulo(r, x, y);
+                circulos[j].desenharDeVerdade();
                 circulos[j].desenhar();
             }
         }
@@ -44,8 +54,11 @@ public class Main {
             Triangulo[] triangulos = new Triangulo[n];
             
             for(int j = 0; j < n; j++){
+                System.out.printf("a = ");
                 int a = teclado.nextInt();
+                System.out.printf("b = ");
                 int b = teclado.nextInt();
+                System.out.printf("c = ");
                 int c = teclado.nextInt();
                 triangulos[j] = new Triangulo(a, b, c);
                 System.out.println(triangulos[j]);
@@ -54,8 +67,6 @@ public class Main {
         }else{
             System.out.println("Digite uma opcao valida");
         }
-        
-
         teclado.close();
     }
 }

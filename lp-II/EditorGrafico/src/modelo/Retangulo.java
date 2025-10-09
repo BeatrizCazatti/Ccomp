@@ -18,6 +18,17 @@ public class Retangulo {
         this.largura = largura;
     }
 
+    public Retangulo(Retangulo outro){
+        this.ponto = new Ponto(outro.ponto.getX(), outro.ponto.getY());
+        this.altura = outro.altura;
+        this.largura = outro.largura;
+    }
+
+    public void mover(int x, int y){
+        ponto.setX(x);
+        ponto.setY(y);
+    }
+
     public int getX(){
         return ponto.getX();
     }
@@ -69,5 +80,5 @@ public class Retangulo {
     }
 
     public void desenhar() {
-        System.out.printf("%s %d %d\n", ponto.desenhar(), this.largura, this.altura);
+        System.out.printf("%s l = %d a = %d\n", ponto.coordenadas(), this.largura, this.altura);
     }}
