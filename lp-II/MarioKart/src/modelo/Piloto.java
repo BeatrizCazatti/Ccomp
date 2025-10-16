@@ -122,4 +122,30 @@ public class Piloto {
                 ", moedas=" + moedas +
                 '}';
     }
+
+    //vai ajudar o adversario?
+    public void usarItem(Item item, Piloto pilotoAdversario){
+        int poder = item.serUsado();
+
+        switch (item.getNome()){
+            case "Cogumelo":{
+                pilotoAdversario.kart.acelerar(poder*habilidade);
+                break;
+            }
+            case "Casco":{
+                pilotoAdversario.perderMoedas(poder);
+                pilotoAdversario.habilidade = 1;
+                break;
+            }
+            case "Banana":{
+                pilotoAdversario.kart.frear((int)poder/habilidade);
+                pilotoAdversario.habilidade = 1;
+                break;
+            }
+            case "Estrela":{
+                pilotoAdversario.habilidade += poder;
+                break;
+            }
+        }
+    }
 }
