@@ -44,4 +44,8 @@ public class Triangulo {
     public void setC(int novoC) {
         if(novoC < a + b){ this.a = novoC;}
     }    
+
+    public int getArea() {
+        return (int) this.a * this.b;
+    }
 }

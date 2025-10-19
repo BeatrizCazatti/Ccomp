@@ -1,6 +1,5 @@
 package modelo;
 
-
 public class Circulo {
     private int r;
     private Ponto ponto;
@@ -47,6 +46,10 @@ public class Circulo {
 
     public void desenhar() {
         System.out.printf("%s r = %d\n", ponto.coordenadas(), this.r);
+    }
+
+    public int getArea() {
+        return (int) 3.14*(this.r * this.r);
     }
 
 }

@@ -81,4 +81,9 @@ public class Retangulo {
 
     public void desenhar() {
         System.out.printf("%s l = %d a = %d\n", ponto.coordenadas(), this.largura, this.altura);
-    }}
+    }
+
+    public int getArea() {
+        return this.largura * this.altura;
+    }
+}
