@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import modelo.Circulo;
 import modelo.PlanoCartesiano;
+import modelo.Ponto;
 import modelo.Retangulo;
 import modelo.Triangulo;
 
@@ -46,12 +47,22 @@ public class Main {
                 plano.addCirculo(c);
             }
             else if (fig == 3){
-                System.out.printf("a = ");
-                int a = teclado.nextInt();
-                System.out.printf("b = ");
-                int b = teclado.nextInt();
-                System.out.printf("c = ");
-                int c = teclado.nextInt();
+                int x, y;
+                System.out.printf("vertice 1(x, y): ");
+                x = teclado.nextInt();
+                y = teclado.nextInt();
+                Ponto a = new Ponto(x, y);
+                
+                System.out.printf("vertice 2(x, y): ");
+                x = teclado.nextInt();
+                y = teclado.nextInt();
+                Ponto b = new Ponto(x, y);
+
+                System.out.printf("vertice 3(x, y): ");
+                x = teclado.nextInt();
+                y = teclado.nextInt();
+                Ponto c = new Ponto(x, y);
+                
                 Triangulo t = new Triangulo(a, b, c);
                 plano.addTriangulo(t);
             }

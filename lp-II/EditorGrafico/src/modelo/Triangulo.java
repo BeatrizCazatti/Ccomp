@@ -1,51 +1,61 @@
 package modelo;
 
 public class Triangulo {
-    //segmento de reta, validar triangulo
-    private int a, b, c;
-    private Ponto ponto;
+    private SegmentoDeReta[] lados;
+    private float[] tamLados = new float[3];
+
+    public Triangulo(Ponto pt1, Ponto pt2, Ponto pt3) {
+        SegmentoDeReta ladoA = new SegmentoDeReta(pt1, pt2);
+        SegmentoDeReta ladoB = new SegmentoDeReta(pt2, pt3);
+        SegmentoDeReta ladoC = new SegmentoDeReta(pt1, pt3);
+        this.lados = new SegmentoDeReta[3];
+        this.tamLados[0] = lados[0].tamanho();
+        this.tamLados[1] = lados[1].tamanho();
+        this.tamLados[2] = lados[2].tamanho();
     
-    public Triangulo(int a, int b, int c) {
-        if(a < c + b && b < a + c && c < a + b){
-            this.a = a; this.b = b; this.c = c;
+
+        if(ladoA.tamanho() < ladoC.tamanho() + ladoB.tamanho() && ladoB.tamanho() < ladoA.tamanho() + ladoC.tamanho() && ladoC.tamanho() < ladoA.tamanho() + ladoB.tamanho()){
+            this.lados[0] = ladoA; this.lados[1] = ladoB; this.lados[2] = ladoC;
         }
     }
 
     public Triangulo(Triangulo tri){
-        this.a = tri.a; 
-        this.b = tri.b; 
-        this.c = tri.c;
+        this.lados[0] = tri.lados[0]; 
+        this.lados[1] = tri.lados[1]; 
+        this.lados[2] = tri.lados[2];
     }
 
     public void desenhar(){
-        System.out.printf("Triangulo(%d, %d, %d)\n", this.a, this.b, this.c);
+        System.out.printf("Triangulo(%d, %d, %d)\n", this.lados[0], this.lados[1], this.lados[2]);
     }
 
-    public int getA() {
-        return a;
-    }
+    // public SegmentoDeReta getLado0() {
+    //     return lados[0];
+    // }
 
-    public int getB() {
-        return b;
-    }
+    // public SegmentoDeReta getLado1() {
+    //     return lados[1];
+    // }
 
-    public int getC() {
-        return c;
-    }
+    // public SegmentoDeReta getLado2() {
+    //     return lados[2];
+    // }
 
-    public void setA(int novoA) {
-        if(novoA < b + c){ this.a = novoA;}
-    }
+    // public void setA(SegmentoDeReta novoA) {
+    //     if(novoA.tamanho() < ladoB.tamanho() + ladoC.tamanho()){ this.ladoA = novoA;}
+    // }
 
-    public void setB(int novoB) {
-        if(novoB < a + c){ this.a = novoB;}
-    }
+    // public void setB(SegmentoDeReta novoB) {
+    //     if(novoB.tamanho() < ladoA.tamanho() + ladoC.tamanho()){ this.ladoB = novoB;}
+    // }
 
-    public void setC(int novoC) {
-        if(novoC < a + b){ this.a = novoC;}
-    }    
+    // public void setC(SegmentoDeReta novoC) {
+    //     if(novoC.tamanho() < ladoA.tamanho() + ladoB.tamanho()){ this.ladoC = novoC;}
+    // }    
 
-    public int getArea() {
-        return (int) this.a * this.b;
+    public float getArea() {
+        float altura = tamLados[0] > tamLados[1] ? tamLados[0] : tamLados[1];
+        float base = tamLados[1] > tamLados[2] ? tamLados[1] : tamLados[2];
+        return (base * altura) / 2;
     }
 }
