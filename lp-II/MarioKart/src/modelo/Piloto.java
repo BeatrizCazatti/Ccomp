@@ -7,16 +7,20 @@ public class Piloto {
     private Kart kart;
     private Item[] itensColetados;
 
-    public Piloto(String nome, int habilidade, int velocidadeMax, Item[] itensColetados) {
+    public Piloto(String nome, int habilidade, Item[] itensColetados, Kart kart) {
         if (nome != null && habilidade >=0 && habilidade <= 100 && validaItens(itensColetados)){
             this.nome = nome;
             this.habilidade = habilidade;
             this.moedas = 0;
             this.itensColetados = itensColetados;
-            this.kart = new Kart(velocidadeMax, this);
+            setKart(kart);
         }
     }
 
+    private void setKart(Kart kart){
+        if(kart != null) this.kart = kart;
+    }
+    
     private boolean validaItens(Item[] itensColetados) {
         if(itensColetados == null || itensColetados.length > 4) return false;
 
@@ -112,6 +116,25 @@ public class Piloto {
                 break;
             }
         }
+    }
+
+    public void acelerar(int seg) {
+        this.kart.acelerar(seg);
+    }
+
+    public void frear(int seg) {
+        this.kart.frear(seg);
+    }
+
+    public void efetivarCurva() {
+        this.kart.efetivarCurva();
+    }
+
+    public void derrapar() {
+        this.kart.derrapar();
+    }
+    public void trocarPneus(){
+        this.kart.trocarPneus();
     }
 
     @Override

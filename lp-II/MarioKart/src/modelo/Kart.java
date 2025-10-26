@@ -11,10 +11,14 @@ public class Kart {
             this.velocidadeAtual = 0;
             this.velocidadeMax = velocidadeMax;
             this.desgastePneus = 0;
-            this.piloto = piloto;
+            setPiloto(piloto);
         }
     }
 
+    private void setPiloto(Piloto piloto){
+        if(piloto != null) this.piloto = piloto;
+    }
+    
     private void desgastarPneus(float desgaste){
         if (desgastePneus + desgaste <= 100){
             desgastePneus += desgaste;
@@ -33,7 +37,6 @@ public class Kart {
         }
 
         desgastarPneus(segundos/3.0f);
-
     }
 
     public void frear(int segundos){
