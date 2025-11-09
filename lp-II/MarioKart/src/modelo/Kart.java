@@ -7,22 +7,26 @@ public class Kart {
     private Piloto piloto;
 
     public Kart(int velocidadeMax, Piloto piloto) {
-        if (velocidadeMax > 0){
+        if (velocidadeMax > 0 && piloto != null) {
             this.velocidadeAtual = 0;
             this.velocidadeMax = velocidadeMax;
             this.desgastePneus = 0;
-            setPiloto(piloto);
+            this.piloto = piloto;
         }
     }
 
-    private void setPiloto(Piloto piloto){
+    // private boolean estaOcupado(){
+    //     return this.piloto != null;
+    // }
+
+    public void setPiloto(Piloto piloto){
         if(piloto != null) this.piloto = piloto;
     }
     
     private void desgastarPneus(float desgaste){
         if (desgastePneus + desgaste <= 100){
             desgastePneus += desgaste;
-        } else{
+        } else { 
             desgastePneus = 100;
         }
     }

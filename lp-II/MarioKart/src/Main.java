@@ -11,8 +11,11 @@ public class Main {
         Item estrela = new Item("Estrela", 7);
 
         Item[] itens = {cogumelo, casco, banana, estrela};
-        Kart oroch = new Kart(100, null);
-        Piloto mario = new Piloto("Mario", 10, itens, oroch);
+        Piloto mario = new Piloto("Mario", 10);
+        //Piloto princesa = new Piloto("Princesa", 20, itens);
+        //estaOcupadoe receberMotorista
+        Kart oroch = new Kart(100, mario);
+        mario.setKart(oroch);
 
         System.out.println(mario);
         System.out.println(cogumelo);
@@ -21,7 +24,7 @@ public class Main {
         System.out.println(estrela);
 
         mario.coletarMoedas(50);
-        mario.acelerar(100);
+        oroch.acelerar(100);
         cogumelo.reabastecer(2);
         casco.reabastecer(3);
         banana.reabastecer(5);

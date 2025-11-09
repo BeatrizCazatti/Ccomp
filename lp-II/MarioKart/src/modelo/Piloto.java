@@ -6,31 +6,20 @@ public class Piloto {
     private int moedas;
     private Kart kart;
     private Item[] itensColetados;
+    private int qtdItensColetados;
 
-    public Piloto(String nome, int habilidade, Item[] itensColetados, Kart kart) {
-        if (nome != null && habilidade >=0 && habilidade <= 100 && validaItens(itensColetados)){
+    public Piloto(String nome, int habilidade) {
+        if (nome != null && habilidade > 0 && habilidade <= 100){
             this.nome = nome;
             this.habilidade = habilidade;
             this.moedas = 0;
-            this.itensColetados = itensColetados;
-            setKart(kart);
+            this.itensColetados = new Item[4];
+            this.qtdItensColetados = 0;
         }
     }
 
-    private void setKart(Kart kart){
+    public void setKart(Kart kart){
         if(kart != null) this.kart = kart;
-    }
-    
-    private boolean validaItens(Item[] itensColetados) {
-        if(itensColetados == null || itensColetados.length > 4) return false;
-
-        for(int i = 0; i < itensColetados.length; i++){
-            for(int j = i + 1; j < itensColetados.length; j++){
-                if(itensColetados[i].getNome().equals(itensColetados[j].getNome())) return false;
-            }
-        }
-        
-        return true;
     }
     
     public int getHabilidade() {
@@ -66,12 +55,20 @@ public class Piloto {
         }
     }
 
+    private int posicaoItem(String nome){
+        for(int i = 0; i < itensColetados.length; i++){
+            if(itensColetados[i] != null & itensColetados[i].getNome().equals(nome)) return i;
+        }
+        return -1;
+    }
+
     public void coletarItem(Item item){
         for(Item i : this.itensColetados){
             if(item.getNome().equals(i.getNome())){
                 i.setQuantidade(1);
+                this.qtdItensColetados++;
             }else if(this.itensColetados.length < 4){
-                itensColetados[itensColetados.length - 1] = item;
+                itensColetados[qtdItensColetados - 1] = item;
             }
         }
     }
@@ -83,58 +80,10 @@ public class Piloto {
         }
     }
 
+    //ultimo item entra no lugar do item removido
     public void removerItem(Item item) {
-        Item[] novos = new Item[itensColetados.length];
-        int idx = 0;
-        for(Item i : itensColetados){
-            if(i != item) {
-                novos[idx++] = i;
-            }
-        }
-    }
-
-    public void usarItem(Item item){
-        int poder = item.serUsado();
-
-        switch (item.getNome()){
-            case "Cogumelo":{
-                kart.acelerar(poder*habilidade);
-                break;
-            }
-            case "Casco":{
-                perderMoedas(poder);
-                habilidade = 1;
-                break;
-            }
-            case "Banana":{
-                kart.frear((int)poder/habilidade);
-                habilidade = 1;
-                break;
-            }
-            case "Estrela":{
-                habilidade += poder;
-                break;
-            }
-        }
-    }
-
-    public void acelerar(int seg) {
-        this.kart.acelerar(seg);
-    }
-
-    public void frear(int seg) {
-        this.kart.frear(seg);
-    }
-
-    public void efetivarCurva() {
-        this.kart.efetivarCurva();
-    }
-
-    public void derrapar() {
-        this.kart.derrapar();
-    }
-    public void trocarPneus(){
-        this.kart.trocarPneus();
+        int pos = posicaoItem(nome);
+        if(pos != -1) itensColetados[pos].serUsado();
     }
 
     @Override
@@ -146,7 +95,6 @@ public class Piloto {
                 '}';
     }
 
-    //vai ajudar o adversario?
     public void usarItem(Item item, Piloto pilotoAdversario){
         int poder = item.serUsado();
 
@@ -171,4 +119,30 @@ public class Piloto {
             }
         }
     }
+    public void usarItem(Item item){
+        int poder = item.serUsado();
+
+        switch (item.getNome()){
+            case "Cogumelo":{
+                kart.acelerar(poder*habilidade);
+                break;
+            }
+            case "Casco":{
+                perderMoedas(poder);
+                habilidade = 1;
+                break;
+            }
+            case "Banana":{
+                kart.frear((int)poder/habilidade);
+                habilidade = 1;
+                break;
+            }
+            case "Estrela":{
+                habilidade += poder;
+                break;
+            }
+        }
+    }
 }
+
+
