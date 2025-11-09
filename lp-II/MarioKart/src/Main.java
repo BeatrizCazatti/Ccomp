@@ -10,7 +10,6 @@ public class Main {
         Item banana = new Item("Banana", 5);
         Item estrela = new Item("Estrela", 7);
 
-        Item[] itens = {cogumelo, casco, banana, estrela};
         Piloto mario = new Piloto("Mario", 10);
         //Piloto princesa = new Piloto("Princesa", 20, itens);
         //estaOcupadoe receberMotorista
