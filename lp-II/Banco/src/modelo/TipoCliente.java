@@ -1,3 +1,3 @@
 public enum TipoCliente {
-    VIP, TRADICIONAL
+    VIP, TRADICIONAL;
 }

@@ -1,14 +1,32 @@
+import java.util.ArrayList;
+
 public class Cliente {
-    private Agencia agencia;
+    private String nome;
     private String cpf;
     private Endereco moradia;
-    private int numero;
+    private TipoCliente tipo;
+    private ArrayList<Conta> contas;
 
-    public Cliente(Agencia agencia, String cpf, Endereco moradia, int mumero){
-        
+    public Cliente(String nome, String cpf, Endereco moradia, TipoCliente tipo){
+        super();
+        this.nome = nome;
+        this.cpf = cpf;
+        this.moradia = moradia;
+        this.tipo = tipo;
+        this.contas = new ArrayList<Conta>(4);
     }
     public TipoCliente getTipo() {
         return tipo;
+    }
+
+    public boolean adicionarConta(Conta c) {
+        for (Conta conta : contas) {
+            if(conta.getClass().equals(c.getClass())){
+                return false; 
+            } 
+        }
+        contas.add(c);
+        return true;
     }
 
 }

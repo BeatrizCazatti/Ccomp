@@ -1,3 +1,3 @@
-public class TipoConta {
-    
+public enum TipoConta {
+    CONTA_COMUM, CONTA_ESPECIAL, CONTA_INVESTIMENTO, CONTA_POUPANCA;
 }
