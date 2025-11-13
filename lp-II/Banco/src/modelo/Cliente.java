@@ -31,14 +31,15 @@ public class Cliente {
     }
 
     public void exibirInformacoes() {
+		System.out.println("============ Informacoes d@ Cliente ============");
 		System.out.println("nome: " + nome);
 		System.out.println("cpf: " + cpf);
-		System.out.println("moradia: " + moradia.bairro + "-" + moradia.numero);
-		System.out.println("===== Informacoes da(s) Conta(s) =====");
+		System.out.println(moradia.sintetizarDados());
+		System.out.println("========== Informacoes da(s) Conta(s) ==========");
         for (Conta c : contas){
             System.out.println("- Conta " + c.getClass() + ":");
             System.out.println("    - saldo: " + c.saldo);
-
+            System.out.println("    - numero: " + c.numero);
         }
 
 	}

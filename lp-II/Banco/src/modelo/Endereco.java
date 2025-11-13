@@ -1,14 +1,14 @@
 package modelo;
 
 public class Endereco {
-    protected String logradouro;
-    protected int numero;
-    protected String bairro;
-    protected String cidade;
-    protected String estado;
-    protected int cep;
+    private String logradouro;
+    private int numero;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String cep;
 
-    public Endereco (String logradouro, int numero, String bairro, String cidade, String estado, int cep) {
+    public Endereco (String logradouro, int numero, String bairro, String cidade, String estado, String cep) {
         super();
         this.logradouro = logradouro;
         this.numero = numero;
@@ -17,4 +17,9 @@ public class Endereco {
         this.estado = estado;
         this.cep = cep;
     }
+
+    public String sintetizarDados() {
+        //Tv. Laura Figueiredo, 60 - Paraíso, São Gonçalo - RJ, 24431-560
+		return "Endereco: " + logradouro + ", " + numero + " - " + bairro + ", " + cidade + " - " + estado + ", " + cep;
+	}
 }
