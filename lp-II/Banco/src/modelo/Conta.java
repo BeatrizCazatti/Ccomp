@@ -21,4 +21,13 @@ public abstract class Conta {
         if(cliente.getTipo().equals(TipoCliente.VIP)) return 0; else return 1.5f;
     }
 
+    public void depositar (float valor) {
+        if (valor > 0) { 
+            this.saldo += valor;
+        }
+    }
+
+    public float consultarSaldo () {
+        return this.saldo;
+    }
 }
