@@ -1,5 +1,6 @@
 package modelo;
+import java.time.LocalDate;
 
 public interface Rentavel {
-    public void mandaRender();
+    public void render();
 }

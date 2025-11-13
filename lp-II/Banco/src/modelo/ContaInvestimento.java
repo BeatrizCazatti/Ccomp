@@ -1,12 +1,20 @@
 package modelo;
+import java.time.LocalDate;
 
 public class ContaInvestimento extends Conta implements Rentavel{
-    private float rendimentoDiario;
-    public ContaInvestimento (Agencia agencia, String numero, Cliente cliente, float perc) {
+    protected LocalDate dataUltimoRendimento;
+    protected float percRendimento;
+
+    public ContaInvestimento (Cliente cliente, String numero, Agencia agencia, float perc) {
         super(cliente, numero, agencia);
-        this.rendimentoDiario = perc;
+        dataUltimoRendimento = null;
+        percRendimento = perc;
    }
    @Override
-    public void mandaRender() {
+    public void render() {
+        if(dataUltimoRendimento == null || LocalDate.now().isAfter(dataUltimoRendimento.plusDays(1))){
+            saldo += saldo * percRendimento;
+            dataUltimoRendimento = LocalDate.now();
+        }
     }
 }

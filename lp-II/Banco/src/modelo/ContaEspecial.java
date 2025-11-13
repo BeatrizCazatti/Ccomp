@@ -3,7 +3,7 @@ package modelo;
 public class ContaEspecial extends Conta implements Sacavel{
     private float limite;
 
-    public ContaEspecial (Agencia agencia, String numero, Cliente cliente, float limite) {
+    public ContaEspecial (Cliente cliente, String numero, Agencia agencia, float limite) {
         super(cliente, numero, agencia);
         this.limite = limite;
    }

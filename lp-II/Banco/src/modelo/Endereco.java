@@ -9,6 +9,7 @@ public class Endereco {
     protected int cep;
 
     public Endereco (String logradouro, int numero, String bairro, String cidade, String estado, int cep) {
+        super();
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;

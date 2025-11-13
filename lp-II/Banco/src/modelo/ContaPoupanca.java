@@ -1,10 +1,15 @@
 package modelo;
 
+import java.time.LocalDate;
+
 public class ContaPoupanca extends Conta implements Sacavel, Rentavel {
-    private float rendimentoMensal;
-    public ContaPoupanca (Agencia agencia, String numero, Cliente cliente, float perc) {
+    protected LocalDate dataUltimoRendimento;
+    protected float percRendimento;
+
+    public ContaPoupanca (Cliente cliente, String numero, Agencia agencia, float perc) {
         super(cliente, numero, agencia);
-        this.rendimentoMensal = perc;
+        dataUltimoRendimento = null;
+        percRendimento = perc;
    }
 
    @Override
@@ -15,7 +20,10 @@ public class ContaPoupanca extends Conta implements Sacavel, Rentavel {
         }
    }
     @Override
-    public void mandaRender() {
-        
+    public void render() {
+        if(dataUltimoRendimento == null || LocalDate.now().isAfter(LocalDate.now().plusMonths(1))) {
+            saldo += saldo * percRendimento;
+            dataUltimoRendimento = LocalDate.now();
+        }
     }
 }

@@ -1,7 +1,7 @@
 package modelo;
 
 public class ContaComum extends Conta implements Sacavel {
-   public ContaComum (Agencia agencia, String numero, Cliente cliente) {
+   public ContaComum (Cliente cliente, String numero, Agencia agencia) {
         super(cliente, numero, agencia);
    }
 

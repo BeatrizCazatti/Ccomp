@@ -33,7 +33,7 @@ public class Cliente {
     public void exibirInformacoes() {
 		System.out.println("nome: " + nome);
 		System.out.println("cpf: " + cpf);
-		System.out.println("moradia: " + moradia);
+		System.out.println("moradia: " + moradia.bairro + "-" + moradia.numero);
 		System.out.println("===== Informacoes da(s) Conta(s) =====");
         for (Conta c : contas){
             System.out.println("- Conta " + c.getClass() + ":");
