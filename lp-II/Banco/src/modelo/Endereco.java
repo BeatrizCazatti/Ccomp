@@ -1,3 +1,5 @@
+package modelo;
+
 public class Endereco {
     protected String logradouro;
     protected int numero;

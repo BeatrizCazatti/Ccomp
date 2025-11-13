@@ -1,3 +1,5 @@
+package modelo;
+
 public class ContaPoupanca extends Conta implements Sacavel, Rentavel {
     private float rendimentoMensal;
     public ContaPoupanca (Agencia agencia, String numero, Cliente cliente, float perc) {

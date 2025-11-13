@@ -1,3 +1,5 @@
+package modelo;
+
 public class ContaEspecial extends Conta implements Sacavel{
     private float limite;
 
