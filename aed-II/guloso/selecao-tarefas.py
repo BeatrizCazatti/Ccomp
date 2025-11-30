@@ -1,3 +1,5 @@
+'''Dadas n tarefas com datas de início e fim ( c1, f1),(c2, f2), ...(cn, fn), determinar o máximo de tarefas que podem ser executadas por 1 processador.
+'''
 def selecionaTarefas(T, n):
     r = S[0][1] 
     for i in range(1, n):
